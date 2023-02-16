@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "138069267618",
+    "project_id": "test-cordova-c5d30",
+    "storage_bucket": "test-cordova-c5d30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138069267618:android:e6e73db8ba185e937273fb",
+        "android_client_info": {
+          "package_name": "com.firebasetest.hello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138069267618-4lao3f8mbr74f1n8igsnl9fopj2vi5ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1eyKtrMQ_xwxdhWZKqx52xM2gy1e3Xr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138069267618-4lao3f8mbr74f1n8igsnl9fopj2vi5ti.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "138069267618-858suuu60qlmi04j9h780n548mvo8df6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.technolibre.firebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138069267618:android:3031962a045318637273fb",
+        "android_client_info": {
+          "package_name": "com.technolibre.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138069267618-4lao3f8mbr74f1n8igsnl9fopj2vi5ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1eyKtrMQ_xwxdhWZKqx52xM2gy1e3Xr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138069267618-4lao3f8mbr74f1n8igsnl9fopj2vi5ti.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "138069267618-858suuu60qlmi04j9h780n548mvo8df6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.technolibre.firebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138069267618:android:99da0c87eee33f867273fb",
+        "android_client_info": {
+          "package_name": "uk.co.workingedge.firebase.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138069267618-4lao3f8mbr74f1n8igsnl9fopj2vi5ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1eyKtrMQ_xwxdhWZKqx52xM2gy1e3Xr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138069267618-4lao3f8mbr74f1n8igsnl9fopj2vi5ti.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "138069267618-858suuu60qlmi04j9h780n548mvo8df6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.technolibre.firebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
