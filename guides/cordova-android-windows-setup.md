@@ -6,12 +6,12 @@ I will refer to the ``System Variable`` named ``Path`` as ``PATH`` for simplicit
 
 ## Installing Prerequisites for Cordova
 
-Install the latest LTS version (**18.15.0**) of NodeJS for your system from the following [link](https://nodejs.org/en/download/):
+Install the latest LTS version (**18.15.0**) of Node.JS for your system from the following [link](https://nodejs.org/en/download/):
 ```none
 https://nodejs.org/en/download/
 ```
 During the installation, make sure to select ``Add to PATH``. 
-###IMAGE 
+![Node.js Setup - Add to PATH](image/node-path.png)
 
 If you missed it, you can add it manually to your ``PATH`` by pointing to your ``...\nodejs`` directory. 
 
