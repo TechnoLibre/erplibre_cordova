@@ -25,5 +25,20 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+
     document.getElementById('deviceready').classList.add('ready');
+    document.getElementById("test").onclick = function() {showDialog()};
+}
+
+function showDialog() {
+    navigator.notification.confirm(
+        '2, 1 or 0', // message
+         onConfirm,            // callback to invoke with index of button pressed
+        'Choose one',           // title
+        ['1','2']     // buttonLabels
+    );
+}
+
+function onConfirm(buttonIndex) {
+    alert('You selected button ' + buttonIndex);
 }
