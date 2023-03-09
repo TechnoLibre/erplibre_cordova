@@ -69,16 +69,16 @@ https://developer.android.com/studio
 ```
 
 Once Android Studio has been installed,  we need to add the necessary SDK and tools to your Android Studio installation. To do so, open ``Android Studio`` and click on ``More Actions`` to get to ``SDK Manager``.
-Once everything has been checked correctly, apply your changes.
-###IMAGE
+![Android Studio - SDK Manager](image/more-sdk.png)
 
 Inside the  ``SDK Platforms`` tab, check ``Android 12L (Sv2)``.
-###IMAGE
+![Android Studio - Android 12L SDK](image/sdk-12L.png)
 
-Inside the ``SDK Tools`` tab uncheck ``Hide Obsolete Packages`` at the bottom of the window. After that, check ``Android SDK Command-line Tools``, ``Android SDK Platform-tools``, ``Android SDK Tools (Obsolete)`` and under ``Android SDK Build-Tools 34-rc2`` check ``32.1.0-rc1``. By default, theses folders should be in your ``C:\Users\[USERNAME]\AppData\Local\Android`` directory. Once everything has been checked correctly, apply your changes.
-###IMAGE
+Inside the ``SDK Tools`` tab uncheck ``Hide Obsolete Packages`` at the bottom of the window. After that, check ``Android SDK Command-line Tools``, ``Android SDK Platform-tools``, ``Android SDK Tools (Obsolete)`` and under ``Android SDK Build-Tools 34-rc2`` check ``32.1.0-rc1``. Once everything has been checked correctly, apply your changes.
+![Android Studio - Build Tools](image/build-tools.png)
+![Android Studio - SDK Tools (Obsolete)](image/sdk-obsolete.png)
 
-Once you have completed the previous steps,  create a ``User Variable`` named ``ANDROID_SDK_ROOT`` with the path to your ``...\Sdk`` and point your ``PATH`` to ``...\Sdk\platform-tools``, ``\Sdk\cmdline-tools\latest\bin``.
+Once you have completed the previous steps,  create a ``User Variable`` named ``ANDROID_SDK_ROOT`` with the path to your ``...\Sdk`` and point your ``PATH`` to ``...\Sdk\platform-tools``, ``\Sdk\cmdline-tools\latest\bin``. By default, theses folders should be in your ``C:\Users\[USERNAME]\AppData\Local\Android`` directory.
 
 #### Android Target
 Once Android Studio has been installed,  we need create a virtual device. To do so, open ``Android Studio`` and click on ``More Actions`` to get to ``Virtual Device Manager``. Once the window is open click on ``Create device`` and follow the steps from the wizard. When asked to ``Select a system image`` make sure to select ``Sv2``.
