@@ -11,6 +11,7 @@ Install the latest LTS version (**18.15.0**) of Node.JS for your system from the
 https://nodejs.org/en/download/
 ```
 During the installation, make sure to select ``Add to PATH``. 
+
 ![Node.js Setup - Add to PATH](image/node-path.png)
 
 If you missed it, you can add it manually to your ``PATH`` by pointing to your ``...\nodejs`` directory. 
