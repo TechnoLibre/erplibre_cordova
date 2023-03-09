@@ -43,7 +43,7 @@ Once done, you can verify it has been added succesfully using the following comm
 cordova platform ls
 ```
 
-### Installing requirements 
+## Installing requirements for Android
 Once you have added your Android platform to the Cordova project with no problems. It is time to check if you comply with all the requirements necessary to build and release an Android app. To see which requirements you are missing, run the following command:
 ```cmd
 cordova requirements
@@ -51,7 +51,7 @@ cordova requirements
 
 If you have a clean system, you will be missing all requirements, this guide will show you how to comply with each individual prerequisite.
 
-#### Java SDK
+### Java SDK
 
 Install the latest LTS version (**11.0.18**) of Java 11 for your system from the following [link](https://www.oracle.com/java/technologies/downloads/#java11):
 ```none
