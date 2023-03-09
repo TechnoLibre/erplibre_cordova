@@ -93,7 +93,7 @@ Once the window is open click on ``Create device`` and follow the steps from the
 
 ![Android Studio - System Image](image/system-image.png)
 
-Once you have completed the previous steps,  point your ``PATH`` to ``...\Sdk\tools\emulator``.
+Once you have completed the wizard,  point your ``PATH`` to ``...\Sdk\tools\emulator``.
 
 ### Gradle
 
