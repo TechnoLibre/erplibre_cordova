@@ -1,7 +1,7 @@
 
 # Windows 10 version 2004 and up or 11 - release and development
 
-A guide on how to set up a workspace and run a Cordova app on Android 12L on Windows 10 version 2004 and up or Windows 11. All commands will be ran in a standard Windows command prompt. There will be steps to follow and examples at the end of this guide to explain how to add a ``User Variable`` or a ``PATH`` correctly for your Windows installation.
+A guide on how to set up a workspace and run a Cordova app on Android 12L on Windows 10 version 2004 and up or Windows 11. All commands will be ran in a standard Windows command prompt. There will be steps to follow at the end of this guide to explain how to add a ``User Variable`` or a ``PATH`` correctly for your Windows installation.
 I will refer to the ``System Variable`` named ``Path`` as ``PATH`` for simplicity and clarity.
 
 ## Installing Prerequisites for Cordova
@@ -61,7 +61,7 @@ https://www.oracle.com/java/technologies/downloads/#java11
 Once it has been installed,  create a ``User Variable`` named ``JAVA_HOME`` with the path to your ``...\jdk-11`` and a ``PATH`` pointing to your ``...\javapath`` directory.
 
 
-#### Android SDK
+### Android SDK
 
 Install the latest version (**2022.1.1 Patch 2**) of Android Studio Electric Eel for your system from the following [link](https://developer.android.com/studio):
 ```none
@@ -84,13 +84,18 @@ Inside the ``SDK Tools`` tab uncheck ``Hide Obsolete Packages`` at the bottom of
 
 Once you have completed the previous steps,  create a ``User Variable`` named ``ANDROID_SDK_ROOT`` with the path to your ``...\Sdk`` and point your ``PATH`` to ``...\Sdk\platform-tools``, ``\Sdk\cmdline-tools\latest\bin``. By default, theses folders should be in your ``C:\Users\[USERNAME]\AppData\Local\Android`` directory.
 
-#### Android Target
-Once Android Studio has been installed,  we need create a virtual device. To do so, open ``Android Studio`` and click on ``More Actions`` to get to ``Virtual Device Manager``. Once the window is open click on ``Create device`` and follow the steps from the wizard. When asked to ``Select a system image`` make sure to select ``Sv2``.
-###IMAGE
+### Android Target
+Once Android Studio has been installed,  we need create a virtual device. To do so, open ``Android Studio`` and click on ``More Actions`` to get to ``Virtual Device Manager``. 
+
+![Android Studio - Virtual Device Manager](image/more-avd.png)
+
+Once the window is open click on ``Create device`` and follow the steps from the wizard. When asked to ``Select a system image`` make sure to select ``Sv2``.
+
+![Android Studio - System Image](image/system-image.png)
 
 Once you have completed the previous steps,  point your ``PATH`` to ``...\Sdk\tools\emulator``.
 
-#### Gradle
+### Gradle
 
 Download the latest version (**8.0.2**) of the Gradle Binaries for your system from the following [link](https://gradle.org/releases/):
 ```none
