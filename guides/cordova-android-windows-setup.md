@@ -1,7 +1,7 @@
 
 # Windows 10 version 2004 and up or 11 - release and development
 
-A guide on how to set up a workspace and run a Cordova app on Android 12L on Windows 10 version 2004 and up or Windows 11. All commands will be ran in a standard Windows command prompt.
+A guide on how to set up a workspace and run a Cordova app on Android 12L on Windows 10 version 2004 and up or Windows 11. All commands will be ran in a standard Windows command prompt. There will be steps to follow and examples at the end of this guide to explain how to add a ``User Variable`` or a ``PATH`` correctly for your Windows installation.
 
 ## Installing Prerequisites for Cordova
 
@@ -9,7 +9,7 @@ Install the latest LTS version (**18.15.0**) of NodeJS for your system from the 
 ```bash
 https://nodejs.org/en/download/
 ```
-Once installed correctly, run the following command:
+During the installation, make sure to select ``Add to PATH``. Once installed correctly, run the following command:
 ```bash
 npm install -g cordova
 ```
@@ -50,3 +50,12 @@ Install the latest LTS version (**11.0.18**) of Java 11 for your system from the
 ```bash
 https://www.oracle.com/java/technologies/downloads/#java11
 ```
+Once it has been installed,  create a ``User Variable`` named ``JAVA_HOME`` with the path to your ``...\jdk-11`` and a ``PATH`` pointing to your ``...\javapath`` directory.
+
+#### Gradle
+
+Download the latest version (**8.0.2**) of the Gradle Binaries for your system from the following [link](https://gradle.org/releases/):
+```bash
+https://gradle.org/releases/
+```
+Once it has been downloaded, extract them in a directory to your liking and create a ``PATH`` pointing to your ``...\gradle-8.0\bin`` directory.
