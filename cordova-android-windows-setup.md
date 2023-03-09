@@ -11,7 +11,9 @@ Install the latest LTS version (**18.15.0**) of NodeJS for your system from the 
 https://nodejs.org/en/download/
 ```
 During the installation, make sure to select ``Add to PATH``. 
-###IMAGE
+###IMAGE 
+
+If you missed it, you can add it manually to your ``PATH`` by pointing to your ``...\nodejs`` directory. 
 
 Once installed correctly, run the following command:
 ```cmd
@@ -72,7 +74,7 @@ Once everything has been checked correctly, apply your changes.
 Inside the  ``SDK Platforms`` tab, check ``Android 12L (Sv2)``.
 ###IMAGE
 
-Inside the ``SDK Tools`` tab uncheck ``Hide Obsolete Packages`` at the bottom of the window. After that, check ``Android SDK Command-line Tools``, ``Android SDK Platform-tools``, ``Android SDK Tools (Obsolete) and under ``Android SDK Build-Tools 34-rc2`` check ``32.1.0-rc1``. Once everything has been checked correctly, apply your changes.
+Inside the ``SDK Tools`` tab uncheck ``Hide Obsolete Packages`` at the bottom of the window. After that, check ``Android SDK Command-line Tools``, ``Android SDK Platform-tools``, ``Android SDK Tools (Obsolete)`` and under ``Android SDK Build-Tools 34-rc2`` check ``32.1.0-rc1``. By default, theses folders should be in your ``C:\Users\[USERNAME]\AppData\Local\Android`` directory. Once everything has been checked correctly, apply your changes.
 ###IMAGE
 
 Once you have completed the previous steps,  create a ``User Variable`` named ``ANDROID_SDK_ROOT`` with the path to your ``...\Sdk`` and point your ``PATH`` to ``...\Sdk\platform-tools``, ``\Sdk\cmdline-tools\latest\bin``.
@@ -110,26 +112,35 @@ cordova run android
 
 ### Opening the Environment Variables window
 ```none
-1.  Open the "Control Panel" from the start menu
-2.  Select "System" under the "System and Security" tab
-3.  Click on "Advanced system settings"
+1. Open the "Control Panel" from the start menu
+2. Select "System" under the "System and Security" tab
+3. Click on "Advanced system settings"
 4. Click on "Environment Variables..."
 ```
 
 ### Creating a User Variable
 For this section, we will only work under the ``user variables for [USERNAME]`` section
 ```none
-1.  Click on "New..."
-2.  Fill both fields with the desired values
-3.  Press "OK"
+1. Click on "New..."
+2. Fill both fields with the desired values
+3. Press "OK"
 ```
 Repeat the previous steps for every variable you wish to add.
 
 ### Adding to your Path varibale
 For this section, we will only work under the ``system variables`` section
 ```none
-1.  Click on "New..."
-2.  Fill both fields with the desired values
-3.  Press "OK"
+1. In the list of variables, select "Path"
+2. Click on "Edit..."
+3. Inside the new window, click on "New" 
+4. Within the new empty field, specify the desired directy to point at
+5. Press "OK"
 ```
 Repeat the previous steps for every variable you wish to add.
+
+### Saving modifications to your Environment Variables 
+Once you have done all your changes, make sure to close your ``Environment Variables`` window using the ``OK`` button.
+
+
+### Troubleshooting Environment Variables
+Make sure to relaunch any command prompt windows you have open to make sure they are re-initialised with the new values you have just created and/or edited.
