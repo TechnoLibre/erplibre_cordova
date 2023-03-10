@@ -29,7 +29,7 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
 
     document.getElementById("button-dialog").onclick = function() {showDialog()};
-    window.addEventListener("batterystatus", onBatteryStatus, false);
+    document.getElementById("button-battery").onclick = function() {ShowBatteryStatus()};
 }
 
 function showDialog() {
@@ -45,10 +45,11 @@ function onConfirm(buttonIndex) {
     alert('You selected button ' + buttonIndex);
 }
 
-// function showBattery(status) {
-//     alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
-// }
+function ShowBatteryStatus() {
+    window.addEventListener("batterystatus", onBatteryStatus, false);
+}
 
 function onBatteryStatus(status) {
-    console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
+    alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+    window.removeEventListener("batterystatus", onBatteryStatus, false);
 }
