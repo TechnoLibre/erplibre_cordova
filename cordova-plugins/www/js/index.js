@@ -32,6 +32,7 @@ function onDeviceReady() {
     document.getElementById("button-battery").onclick = function() {showBatteryStatus()};
     //document.getElementById("button-camera").onclick = function() {useCamera()}
     document.getElementById("button-vibration").onclick = function() {useVibration()};
+    document.getElementById("button-location").onclick = function() {showGeoLocation()};
 }
 
 function showDialog() {
@@ -57,8 +58,30 @@ function onBatteryStatus(status) {
 }
 
 function useVibration() {
-    navigator.vibrate([3000]);
+    navigator.vibrate([500]);
+}
+
+function showGeoLocation() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 }
 // function useCamera() {
 //     navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
 // }
+
+var onSuccess = function(position) {
+    alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+};
+
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
