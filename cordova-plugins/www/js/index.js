@@ -27,7 +27,7 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 
     document.getElementById('deviceready').classList.add('ready');
-    document.getElementById("test").onclick = function() {showDialog()};
+    document.getElementById("button-dialog").onclick = function() {showDialog()};
 }
 
 function showDialog() {
