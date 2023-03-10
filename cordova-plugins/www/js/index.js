@@ -33,6 +33,7 @@ function onDeviceReady() {
     //document.getElementById("button-camera").onclick = function() {useCamera()}
     document.getElementById("button-vibration").onclick = function() {useVibration()};
     document.getElementById("button-location").onclick = function() {showGeoLocation()};
+    //document.getElementById("button-file").onclick = function() {openFileManager()};
 }
 
 function showDialog() {
@@ -85,3 +86,18 @@ function onError(error) {
           'message: ' + error.message + '\n');
 }
 
+// function openFileManager(){ 
+// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+
+//     console.log('file system open: ' + fs.name);
+//     fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
+
+//         alert("fileEntry is file?" + fileEntry.isFile.toString());
+//         // fileEntry.name == 'someFile.txt'
+//         // fileEntry.fullPath == '/someFile.txt'
+//         writeFile(fileEntry, null);
+
+//     }, onErrorCreateFile);
+
+// }, onErrorLoadFs);
+// }
