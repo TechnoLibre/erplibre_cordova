@@ -29,7 +29,9 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
 
     document.getElementById("button-dialog").onclick = function() {showDialog()};
-    document.getElementById("button-battery").onclick = function() {ShowBatteryStatus()};
+    document.getElementById("button-battery").onclick = function() {showBatteryStatus()};
+    //document.getElementById("button-camera").onclick = function() {useCamera()}
+    document.getElementById("button-vibration").onclick = function() {useVibration()};
 }
 
 function showDialog() {
@@ -45,7 +47,7 @@ function onConfirm(buttonIndex) {
     alert('You selected button ' + buttonIndex);
 }
 
-function ShowBatteryStatus() {
+function showBatteryStatus() {
     window.addEventListener("batterystatus", onBatteryStatus, false);
 }
 
@@ -53,3 +55,10 @@ function onBatteryStatus(status) {
     alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
     window.removeEventListener("batterystatus", onBatteryStatus, false);
 }
+
+function useVibration() {
+    navigator.vibrate([3000]);
+}
+// function useCamera() {
+//     navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
+// }
