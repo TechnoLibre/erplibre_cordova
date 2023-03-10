@@ -27,7 +27,9 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 
     document.getElementById('deviceready').classList.add('ready');
+
     document.getElementById("button-dialog").onclick = function() {showDialog()};
+    window.addEventListener("batterystatus", onBatteryStatus, false);
 }
 
 function showDialog() {
@@ -41,4 +43,12 @@ function showDialog() {
 
 function onConfirm(buttonIndex) {
     alert('You selected button ' + buttonIndex);
+}
+
+// function showBattery(status) {
+//     alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+// }
+
+function onBatteryStatus(status) {
+    console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
 }
