@@ -1,0 +1,14 @@
+{
+  "name": "technolibre-electron",
+  "version": "1.0.0",
+  "description": "Electron Test App (Mobile, Web and Desktop)",
+  "main": "src/js/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Ali Moussa",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^23.2.0"
+  }
+}

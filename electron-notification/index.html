@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Electron - AngularJS</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+<!--
+  <link rel="stylesheet" href="src/css/stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="src/js/angular.js"></script> 
+-->
+</head>
+<!-- <body ng-app ="counterApp"> -->
+<body>
+  <p>After launching this application, you should see the system notification.</p>
+  <p id="output">Notification Click Log:<br></p>
+  <button id="myButton">Notification Maker</button>
+<!--
+  <h3>Simple Counter with Controller</h3>
+  
+  <div ng-controller="counterCtrl as ctrl">
+    <button ng-click="ctrl.increment()" ng-disabled="ctrl.isLimitExceeded()">Increment</button>
+    <button ng-click="ctrl.decrement()" ng-disabled="countIsZero()">Deccrement</button>
+    <button ng-click="ctrl.reset()">Reset</button>
+    <hr>
+    <h3 ng-class="{ red: ctrl.countIsZero() }">count: {{ ctrl.count }}</h3>
+    <p ng-show="ctrl.isLimitExceeded()" class="red">You have exceeded your limit!</p>
+    <p ng-hide="ctrl.isLimitExceeded()">You are doing great!</p>
+  </div>
+-->
+  <script src="src/js/renderer.js"></script>
+</body>
+</html>
