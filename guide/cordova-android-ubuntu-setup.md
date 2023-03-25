@@ -86,11 +86,11 @@ Once Android Studio has been installed,  we need to add the necessary SDK and to
 3. Click on "SDK Manager"
 ```
 
-![Android Studio - SDK Manager](image/cordova-android-ubuntu-setupmore-sdk.png)
+![Android Studio - SDK Manager](image/cordova-android-ubuntu-setup/more-sdk.png)
 
 Inside the  ``SDK Platforms`` tab, check ``Android 12L (Sv2)``.
 
-![Android Studio - Android 12L SDK](image/cordova-android-ubuntu-setupsdk-12L.png)
+![Android Studio - Android 12L SDK](image/cordova-android-ubuntu-setup/sdk-12L.png)
 
 Inside the ``SDK Tools`` tab uncheck ``Hide Obsolete Packages`` at the bottom of the window. Check the following:
 
@@ -102,9 +102,9 @@ Inside the ``SDK Tools`` tab uncheck ``Hide Obsolete Packages`` at the bottom of
 5. Android SDK Build-Tools 32.0.0
 ```
 
-![Android Studio - SDK Tools (Obsolete)](image/cordova-android-ubuntu-setupsdk-obsolete.png)
+![Android Studio - SDK Tools (Obsolete)](image/cordova-android-ubuntu-setup/sdk-obsolete.png)
 
-![Android Studio - Build Tools](image/cordova-android-ubuntu-setupbuild-tools.png)
+![Android Studio - Build Tools](image/cordova-android-ubuntu-setup/build-tools.png)
 
 Once everything has been checked correctly, apply your changes.
 
@@ -116,11 +116,11 @@ Once Android Studio has been installed,  we need create a virtual device.
 2. Click on "More Actions"
 3. Click on "Virtual Device Manager"
 ```
-![Android Studio - Virtual Device Manager](image/cordova-android-ubuntu-setupmore-avd.png)
+![Android Studio - Virtual Device Manager](image/cordova-android-ubuntu-setup/more-avd.png)
 
 Once inside the new window, click on ``Create device``  and follow the wizard. When asked to ``Select a system image`` make sure to select ``Sv2``.
 
-![Android Studio - System Image](image/cordova-android-ubuntu-setupsystem-image.png)
+![Android Studio - System Image](image/cordova-android-ubuntu-setup/system-image.png)
 
 ### PATH for Android Studio
 

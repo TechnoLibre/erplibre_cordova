@@ -12,7 +12,7 @@ https://nodejs.org/en/download/
 ```
 During the installation, make sure to select ``Add to PATH``. 
 
-![Node.js Setup - Add to PATH](image/cordova-android-windows-setup/cordova-android-windows-setup/node-path.png)
+![Node.js Setup - Add to PATH](image/cordova-android-windows-setup/node-path.png)
 
 If you missed it, you can add it manually to your ``PATH`` by pointing to your ``...\nodejs`` directory. 
 

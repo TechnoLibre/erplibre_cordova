@@ -8,6 +8,3 @@ myButton.addEventListener('click', () => {
   new Notification("NOTIFICATION MAKER TITLE", { body: "NOTIFICATION MAKER BODY" })
   .onclick = () => document.getElementById("output").innerText += CLICK_MESSAGE
   });
-
-new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
-  .onclick = () => document.getElementById("output").innerText += CLICK_MESSAGE
