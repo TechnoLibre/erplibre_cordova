@@ -1,28 +1,20 @@
-# AlimentsAngularCapacitor
+# Aliments Angular Capacitor
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+Il faut s'assurer d'avoir une version de Node.js supportée par Angular.
 
-## Development server
+Pour vérifier si votre version est compatible, vous pouvez faire la commande `ng version`.
+Si vous recevez un message vous disant que votre version de Node.js n'est pas compatible avec Angular, il est recommandé de changer de version.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Changer l'URL vers ERPLibre dans les fichiers de configuration
 
-## Code scaffolding
+L'URL vers ERPLibre doit être changée dans les fichiers de configuration.
+Les fichiers de configuration se trouvent dans `src/environments`.
+Il y a un fichier pour l'environnement de développement et l'environnement de production.
+Il faut aussi changer l'URL configurée dans `proxy.conf.json`.
+Le proxy est démarré automatiquement lorsqu'on exécute l'application avec `ng serve` comme configuré dans `angular.json`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installer les module ERPLibre nécessaires
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# aliments-angular-capacitor
+Pour que l'application fonctionne, il faut installer deux modules dans ERPLibre.
+Le premier est le module [restful](https://github.com/ajepe/odoo-addons/tree/12.0/restful) par ajepe.
+Le deuxième est le module [xmlrpc_base](https://github.com/RafHuardTL/erplibre_addons/tree/12.0_xmlrpc).
