@@ -83,3 +83,20 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+.idea
+.vscode
+
+angular-capacitor-hello/android
+angular-capacitor-hello/ios
+
+capacitor-hello/android
+capacitor-hello/ios
+
+capacitor-notification/android
+capacitor-notification/ios
+
+capacitor-plugins-migrated/android
+capacitor-plugins-migrated/ios
+
+node_modules
