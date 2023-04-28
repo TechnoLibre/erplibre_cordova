@@ -1,0 +1,11 @@
+{
+  "appId": "com.technolibre.capacitor.hello",
+  "appName": "capacitor-hello",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
