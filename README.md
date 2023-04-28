@@ -299,8 +299,7 @@ application.
     - &#9744; https://forum.ionicframework.com/t/ionic-app-scripts-not-installed/94212
     - &#9744; https://ionicframework.com/docs/intro/cli
     - &#9744; https://stackoverflow.com/questions/51967335/npm-install-permission-denied-macos
-    -
-    &#9744; https://stackoverflow.com/questions/55558984/xcode-pods-projectname-debug-xcconfig-unable-to-open-file-wrong-directory
+    - &#9744; https://stackoverflow.com/questions/55558984/xcode-pods-projectname-debug-xcconfig-unable-to-open-file-wrong-directory
     - &#9744; https://www.maketecheasier.com/install-macos-virtualbox/
     - &#9744; https://www.youtube.com/watch?v=RQXwHeU0INU
     - &#9744; https://www.youtube.com/watch?v=fhnECybadUw
@@ -353,8 +352,7 @@ Create a build of LineageOS 19.1 using the official sources and run it in an emu
     - &#9744; https://wiki.lineageos.org/how-to/import-to-android-studio
     - &#9744; https://forum.xda-developers.com/t/mod-settings-in-lineage-os-and-android-nougat.3781613/
     - &#9744; https://www.reddit.com/r/LineageOS/comments/jz5z6c/configuring_default_lineage_settings_in_the_build/
-    -
-    &#9744; https://github.com/LineageOS/android_lineage-sdk/blob/lineage-17.1/sdk/src/java/lineageos/providers/LineageSettings.java#L2129
+    - &#9744; https://github.com/LineageOS/android_lineage-sdk/blob/lineage-17.1/sdk/src/java/lineageos/providers/LineageSettings.java#L2129
     - &#9744; https://ibotpeaches.github.io/Apktool/install/
     - &#9744; https://forum.xda-developers.com/t/guides-all-guides-at-one-place.2073370/
     - &#9744; https://forum.xda-developers.com/t/guide-complete-android-rom-development-from-source-to-end.2814763/
