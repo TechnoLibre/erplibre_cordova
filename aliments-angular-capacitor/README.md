@@ -1,9 +1,15 @@
 # Aliments Angular Capacitor
 
+Cette application, basée sur mon défi, utilise Angular et Capacitor. Elle est fonctionnelle à la fois sur le navigateur et nativement sur un appareil Android.
+
+## Vérification de la version de Node.js
+
 Il faut s'assurer d'avoir une version de Node.js supportée par Angular.
 
 Pour vérifier si votre version est compatible, vous pouvez faire la commande `ng version`.
 Si vous recevez un message vous disant que votre version de Node.js n'est pas compatible avec Angular, il est recommandé de changer de version.
+
+Un programme comme [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) peut aider à gérer plusieurs versions de Node.js.
 
 ## Création d'une application Capacitor avec Angular
 
