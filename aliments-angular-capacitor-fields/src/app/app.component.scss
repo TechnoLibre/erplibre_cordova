@@ -2,6 +2,7 @@
 	--banner__color: #2474be;
 	--text__color: #f3f3f3;
 	--aliment__background-color: #f3f3f3;
+	--aliment-options__background-color: #e3e3e3;
 	--add__color: #f3f3f3;
 	--edit__color: #0053a1;
 	--delete__color: #a10000;
@@ -40,6 +41,7 @@
 	&__text {
 		color: var(--text__color);
 		flex: 1 1 auto;
+		margin-bottom: 0;
 	}
 }
 
@@ -53,6 +55,7 @@
 .aliment {
 	background-color: var(--aliment__background-color);
 	border-radius: 0.25rem;
+	cursor: pointer;
 	display: flex;
 	overflow: hidden;
 	&__text {
@@ -60,6 +63,10 @@
 		height: 100%;
 		padding: 1rem;
 		width: 100%;
+		&:empty::after {
+			content: ".";
+			visibility: hidden;
+		}
 	}
 	&__add {
 		background-image: url("../assets/add.svg");
@@ -78,6 +85,9 @@
 		cursor: pointer;
 		display: flex;
 		width: 3rem;
+		&:hover {
+			background-color: var(--aliment-options__background-color);
+		}
 	}
 	& + & {
 		margin-top: 1rem;
