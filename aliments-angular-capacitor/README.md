@@ -9,7 +9,7 @@ Si vous recevez un message vous disant que votre version de Node.js n'est pas co
 
 Il faut débuter par une application Angular. Pour cet exemple, j'ai utilisé [Angular CLI](https://angular.io/tutorial/tour-of-heroes/toh-pt0#create-a-new-workspace-and-an-initial-application).
 
-Ensuite, en suivant le [ce guide officiel](https://capacitorjs.com/solution/angular), on ajoute Capacitor au projet Angular.
+Ensuite, en suivant [ce guide officiel](https://capacitorjs.com/solution/angular), on ajoute Capacitor au projet Angular.
 
 ## Changer l'URL vers ERPLibre dans les fichiers de configuration
 
