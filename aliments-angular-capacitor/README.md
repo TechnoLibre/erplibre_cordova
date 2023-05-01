@@ -5,6 +5,12 @@ Il faut s'assurer d'avoir une version de Node.js supportée par Angular.
 Pour vérifier si votre version est compatible, vous pouvez faire la commande `ng version`.
 Si vous recevez un message vous disant que votre version de Node.js n'est pas compatible avec Angular, il est recommandé de changer de version.
 
+## Création d'une application Capacitor avec Angular
+
+Il faut débuter par une application Angular. Pour cet exemple, j'ai utilisé [Angular CLI](https://angular.io/tutorial/tour-of-heroes/toh-pt0#create-a-new-workspace-and-an-initial-application).
+
+Ensuite, en suivant le [ce guide officiel](https://capacitorjs.com/solution/angular), on ajoute Capacitor au projet Angular.
+
 ## Changer l'URL vers ERPLibre dans les fichiers de configuration
 
 L'URL vers ERPLibre doit être changée dans les fichiers de configuration.
