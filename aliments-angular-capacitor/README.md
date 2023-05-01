@@ -9,7 +9,11 @@ Si vous recevez un message vous disant que votre version de Node.js n'est pas co
 
 Il faut débuter par une application Angular. Pour cet exemple, j'ai utilisé [Angular CLI](https://angular.io/tutorial/tour-of-heroes/toh-pt0#create-a-new-workspace-and-an-initial-application).
 
-Ensuite, en suivant [ce guide officiel](https://capacitorjs.com/solution/angular), on ajoute Capacitor au projet Angular.
+Ensuite, en suivant [ce guide officiel](https://capacitorjs.com/solution/angular), on ajoute Capacitor au projet Angular et on installe Android.
+
+## Exécution de l'application Android
+
+Pour exécuter l'application Android, il faut avoir installé la plateforme Android dans le projet. Si ce n'a pas été fait suite à la lecture du guide mentionné ci-dessus, [ce guide officiel](https://capacitorjs.com/docs/android#adding-the-android-platform) montre comment le faire et comment ouvrir Android Studio par la suite. [Ce guide officiel](https://developer.android.com/studio/install#linux) montre comment installer Android Studio.
 
 ## Changer l'URL vers ERPLibre dans les fichiers de configuration
 
