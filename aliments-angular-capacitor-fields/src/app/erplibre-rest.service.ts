@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 	providedIn: 'root',
 })
 export class ErplibreRestService {
+	MODEL = 'rest.aliment';
+
 	constructor(private http: HttpClient) {}
 
 	auth(): Observable<any> {
@@ -16,7 +18,7 @@ export class ErplibreRestService {
 		if (Capacitor.isNativePlatform()) {
 			from(
 				CapacitorHttp.get({
-					url: env.apiUrl + '/api/auth/token',
+					url: `${env.apiUrl}/api/auth/token`,
 					params: {
 						db: 'test_rhuard_demo_full',
 						login: 'admin',
@@ -53,7 +55,7 @@ export class ErplibreRestService {
 				if (Capacitor.isNativePlatform()) {
 					from(
 						CapacitorHttp.get({
-							url: env.apiUrl + '/api/xmlrpc_base.aliment',
+							url: `${env.apiUrl}/api/${this.MODEL}`,
 							headers: {
 								access_token: authResponse.data.access_token,
 							},
@@ -72,7 +74,7 @@ export class ErplibreRestService {
 					});
 				} else {
 					this.http
-						.get('/api/xmlrpc_base.aliment', {
+						.get(`/api/${this.MODEL}`, {
 							headers: {
 								access_token: authResponse.access_token,
 							},
@@ -103,7 +105,7 @@ export class ErplibreRestService {
 				if (Capacitor.isNativePlatform()) {
 					from(
 						CapacitorHttp.post({
-							url: env.apiUrl + '/api/xmlrpc_base.aliment/',
+							url: `${env.apiUrl}/api/${this.MODEL}`,
 							data: {
 								name,
 							},
@@ -126,7 +128,7 @@ export class ErplibreRestService {
 				} else {
 					this.http
 						.post(
-							'/api/xmlrpc_base.aliment',
+							`/api/${this.MODEL}`,
 							{
 								name,
 							},
@@ -164,7 +166,7 @@ export class ErplibreRestService {
 				if (Capacitor.isNativePlatform()) {
 					from(
 						CapacitorHttp.delete({
-							url: env.apiUrl + '/api/xmlrpc_base.aliment/' + id,
+							url: `${env.apiUrl}/api/${this.MODEL}/${id}`,
 							headers: {
 								'Content-Type': 'application/jsonp',
 								access_token: authResponse.data.access_token,
@@ -178,7 +180,7 @@ export class ErplibreRestService {
 					});
 				} else {
 					this.http
-						.delete('/api/xmlrpc_base.aliment/' + id, {
+						.delete(`/api/${this.MODEL}/${id}`, {
 							headers: {
 								'Content-Type': 'application/jsonp',
 								access_token: authResponse.access_token,
@@ -206,7 +208,7 @@ export class ErplibreRestService {
 				if (Capacitor.isNativePlatform()) {
 					from(
 						CapacitorHttp.put({
-							url: env.apiUrl + '/api/xmlrpc_base.aliment/' + id,
+							url: `${env.apiUrl}/api/${this.MODEL}/${id}`,
 							data: {
 								name: newName,
 							},
@@ -229,7 +231,7 @@ export class ErplibreRestService {
 				} else {
 					this.http
 						.put(
-							'/api/xmlrpc_base.aliment/' + id,
+							`/api/${this.MODEL}/${id}`,
 							{
 								name: newName,
 							},
