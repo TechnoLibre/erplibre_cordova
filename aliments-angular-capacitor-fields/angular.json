@@ -24,8 +24,11 @@
 						"tsConfig": "tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
 						"assets": ["src/favicon.ico", "src/assets"],
-						"styles": ["src/styles.scss"],
-						"scripts": []
+						"styles": [
+							"src/assets/css/bootstrap.min.css",
+							"src/styles.scss"
+						],
+						"scripts": ["src/assets/js/bootstrap.bundle.min.js"]
 					},
 					"configurations": {
 						"production": {

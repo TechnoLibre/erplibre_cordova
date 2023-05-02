@@ -2,7 +2,11 @@
 	<div class="banner">
 		<div class="banner__content">
 			<h2 class="banner__text">{{ title }}</h2>
-			<div class="aliment__add" (click)="addAliment()"></div>
+			<div
+				class="aliment__add"
+				data-bs-toggle="modal"
+				data-bs-target="#aliment-modal--add"
+			></div>
 		</div>
 	</div>
 	<ul class="aliments" *ngIf="aliments">
@@ -14,4 +18,37 @@
 			></div>
 		</li>
 	</ul>
+</div>
+<div
+	class="modal fade"
+	id="aliment-modal--add"
+	tabindex="-1"
+	aria-labelledby="aliment-modal-label--add"
+	aria-hidden="true"
+>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Ajouter un aliment</h5>
+				<button
+					type="button"
+					class="btn-close"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				></button>
+			</div>
+			<div class="modal-body">
+				<p>Hello World</p>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					data-bs-dismiss="modal"
+				>
+					Fermer
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
