@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ErplibreRestService } from './erplibre-rest.service';
 import { DialogService } from './dialog.service';
 import { ActionSheetService } from './action-sheet.service';
 import { AlimentModel } from 'src/models/aliment.model';
+import { AlimentAddComponent } from './aliment-add/aliment-add.component';
 
 @Component({
 	selector: 'app-root',
@@ -12,6 +13,7 @@ import { AlimentModel } from 'src/models/aliment.model';
 export class AppComponent {
 	title = 'Aliments';
 	aliments: AlimentModel[] = [];
+	@ViewChild(AlimentAddComponent) alimentAddComponent!: AlimentAddComponent;
 
 	constructor(
 		private erplibreRest: ErplibreRestService,
@@ -23,6 +25,10 @@ export class AppComponent {
 		this.erplibreRest.getAliments().subscribe((response) => {
 			this.aliments = response;
 		});
+	}
+
+	openAddAlimentForm() {
+		this.alimentAddComponent.openAddAlimentForm();
 	}
 
 	alimentOptions(id: number) {
@@ -39,25 +45,6 @@ export class AppComponent {
 				response.index === 0
 					? this.editAliment(id)
 					: this.deleteAliment(id);
-			});
-	}
-
-	addAliment() {
-		this.dialogService
-			.showPrompt('Ajouter', 'Donnez un nom au nouvel aliment.')
-			.subscribe((promptResponse) => {
-				if (!promptResponse.cancelled && promptResponse.value) {
-					this.erplibreRest
-						.addAliment(promptResponse.value)
-						.subscribe({
-							next: (addResponse: AlimentModel) => {
-								this.aliments.push(addResponse);
-							},
-							error: (e) => {
-								console.error(e);
-							},
-						});
-				}
 			});
 	}
 
