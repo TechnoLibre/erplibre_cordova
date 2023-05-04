@@ -9,7 +9,11 @@
 		></button>
 	</div>
 	<div class="modal-body">
-		<form [formGroup]="alimentAddForm" (ngSubmit)="addAliment()">
+		<form
+			[formGroup]="alimentAddForm"
+			(ngSubmit)="addAliment()"
+			autocomplete="off"
+		>
 			<div class="mb-3">
 				<label for="aliment-modal--add__name" class="form-label"
 					>Nom</label
