@@ -27,8 +27,8 @@ export class AppComponent {
 		});
 	}
 
-	openAddAlimentForm() {
-		this.alimentAddComponent.openAddAlimentForm();
+	openAddAlimentModal() {
+		this.alimentAddComponent.openAddAlimentModal();
 	}
 
 	alimentOptions(id: number) {
