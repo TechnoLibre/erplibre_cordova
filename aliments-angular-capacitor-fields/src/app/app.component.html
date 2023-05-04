@@ -10,10 +10,14 @@
 			<span class="aliment__text">{{ aliment.name }}</span>
 			<div
 				class="aliment__options"
-				(click)="alimentOptions(aliment.id)"
+				(click)="openAlimentOptionsModal(aliment.id)"
 			></div>
 		</li>
 	</ul>
 </div>
 <app-aliment-add [aliments]="aliments"></app-aliment-add>
 <app-aliment-edit [aliments]="aliments"></app-aliment-edit>
+<app-aliment-options
+	[aliments]="aliments"
+	(openFormModalEvent)="openFormModal($event)"
+></app-aliment-options>

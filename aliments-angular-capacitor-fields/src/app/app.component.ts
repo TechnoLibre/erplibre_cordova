@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { ErplibreRestService } from './services/erplibre-rest.service';
 import { DialogService } from './services/dialog.service';
-import { ActionSheetService } from './services/action-sheet.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { AlimentAddComponent } from './aliment-add/aliment-add.component';
+import { AlimentOptionsComponent } from './aliment-options/aliment-options.component';
+import { AlimentEditComponent } from './aliment-edit/aliment-edit.component';
 
 @Component({
 	selector: 'app-root',
@@ -14,11 +15,14 @@ export class AppComponent {
 	title = 'Aliments';
 	aliments: AlimentModel[] = [];
 	@ViewChild(AlimentAddComponent) alimentAddComponent!: AlimentAddComponent;
+	@ViewChild(AlimentOptionsComponent)
+	alimentOptionsComponent!: AlimentOptionsComponent;
+	@ViewChild(AlimentEditComponent)
+	alimentEditComponent!: AlimentEditComponent;
 
 	constructor(
 		private erplibreRest: ErplibreRestService,
-		private dialogService: DialogService,
-		private actionSheetService: ActionSheetService
+		private dialogService: DialogService
 	) {}
 
 	ngOnInit() {
@@ -31,21 +35,21 @@ export class AppComponent {
 		this.alimentAddComponent.openAddAlimentModal();
 	}
 
-	alimentOptions(id: number) {
-		this.actionSheetService
-			.showActions('Options', 'Modifier ou supprimer un aliment.', [
-				{
-					title: 'Modifier',
-				},
-				{
-					title: 'Supprimer',
-				},
-			])
-			.subscribe((response) => {
-				response.index === 0
-					? this.editAliment(id)
-					: this.deleteAliment(id);
-			});
+	openAlimentOptionsModal(id: number) {
+		this.alimentOptionsComponent.openModal(id);
+	}
+
+	openFormModal(data: { option: string; id: number }) {
+		switch (data.option) {
+			case 'edit':
+				this.editAliment(data.id);
+				break;
+			case 'delete':
+				this.deleteAliment(data.id);
+				break;
+			default:
+				break;
+		}
 	}
 
 	editAliment(id: number) {

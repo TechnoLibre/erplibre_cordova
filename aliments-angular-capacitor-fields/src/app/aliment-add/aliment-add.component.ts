@@ -11,7 +11,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AlimentAddComponent {
 	@Input() aliments: AlimentModel[] = [];
-	@ViewChild('templateref') public templateRef!: TemplateRef<any>;
+	@ViewChild('templateref') templateRef!: TemplateRef<any>;
 	alimentAddForm = this.formBuilder.group({
 		name: '',
 	});
