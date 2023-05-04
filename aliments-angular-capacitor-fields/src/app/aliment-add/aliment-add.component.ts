@@ -1,5 +1,5 @@
 import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
-import { ErplibreRestService } from '../erplibre-rest.service';
+import { ErplibreRestService } from '../services/erplibre-rest.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { FormBuilder } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Capacitor, CapacitorHttp } from '@capacitor/core';
-import { env } from '../environments/environment';
+import { env } from '../../environments/environment';
 import { Observable, Subject, from } from 'rxjs';
 import { AlimentModel } from 'src/models/aliment.model';
 import { HttpClient } from '@angular/common/http';

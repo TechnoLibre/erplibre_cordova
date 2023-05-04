@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActionSheet, ActionSheetButtonStyle } from '@capacitor/action-sheet';
+import { ActionSheet } from '@capacitor/action-sheet';
 import { from } from 'rxjs';
 
 @Injectable({

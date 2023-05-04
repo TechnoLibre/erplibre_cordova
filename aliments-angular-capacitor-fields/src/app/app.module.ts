@@ -6,9 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { ErplibreRestService } from './erplibre-rest.service';
-import { DialogService } from './dialog.service';
-import { ActionSheetService } from './action-sheet.service';
+import { ErplibreRestService } from './services/erplibre-rest.service';
+import { DialogService } from './services/dialog.service';
+import { ActionSheetService } from './services/action-sheet.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentAddComponent } from './aliment-add/aliment-add.component';
 

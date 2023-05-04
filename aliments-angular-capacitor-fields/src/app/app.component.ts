@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { ErplibreRestService } from './erplibre-rest.service';
-import { DialogService } from './dialog.service';
-import { ActionSheetService } from './action-sheet.service';
+import { ErplibreRestService } from './services/erplibre-rest.service';
+import { DialogService } from './services/dialog.service';
+import { ActionSheetService } from './services/action-sheet.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { AlimentAddComponent } from './aliment-add/aliment-add.component';
 
