@@ -11,9 +11,10 @@ import { DialogService } from './services/dialog.service';
 import { ActionSheetService } from './services/action-sheet.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentAddComponent } from './aliment-add/aliment-add.component';
+import { AlimentEditComponent } from './aliment-edit/aliment-edit.component';
 
 @NgModule({
-	declarations: [AppComponent, AlimentAddComponent],
+	declarations: [AppComponent, AlimentAddComponent, AlimentEditComponent],
 	imports: [
 		BrowserModule,
 		NgbModalModule,

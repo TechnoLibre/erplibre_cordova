@@ -1,0 +1,42 @@
+<ng-template #templateref let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Modifier un aliment</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<form
+			[formGroup]="alimentEditForm"
+			(ngSubmit)="editAliment()"
+			autocomplete="off"
+		>
+			<div class="mb-3">
+				<label for="aliment-modal--add__name" class="form-label"
+					>Nom</label
+				>
+				<input
+					type="text"
+					id="aliment-modal--add__name"
+					formControlName="name"
+					class="form-control"
+					ngbAutoFocus
+				/>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-secondary ml-auto"
+					data-bs-dismiss="modal"
+					(click)="modal.close()"
+				>
+					Fermer
+				</button>
+				<button class="btn btn-primary" type="submit">Modifier</button>
+			</div>
+		</form>
+	</div>
+</ng-template>
