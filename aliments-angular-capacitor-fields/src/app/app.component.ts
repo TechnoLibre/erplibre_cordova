@@ -31,8 +31,9 @@ export class AppComponent {
 		});
 	}
 
-	openAddAlimentModal() {
-		this.alimentAddComponent.openAddAlimentModal();
+	openAlimentAddModal() {
+		this.alimentAddComponent.openAlimentAddModal();
+	}
 	}
 
 	openAlimentOptionsModal(id: number) {

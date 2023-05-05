@@ -23,7 +23,7 @@ export class AlimentAddComponent {
 		private modalService: NgbModal
 	) {}
 
-	openAddAlimentModal() {
+	openAlimentAddModal() {
 		this.alimentAddModal = this.modalService.open(this.templateRef);
 		this.alimentAddModal.closed.subscribe((_result) => {
 			this.alimentAddForm.reset();
