@@ -34,6 +34,9 @@ export class AppComponent {
 	openAlimentAddModal() {
 		this.alimentAddComponent.openAlimentAddModal();
 	}
+
+	openAlimentEditModal(id: number) {
+		this.alimentEditComponent.openModal(id);
 	}
 
 	openAlimentOptionsModal(id: number) {
@@ -43,7 +46,7 @@ export class AppComponent {
 	openFormModal(data: { option: string; id: number }) {
 		switch (data.option) {
 			case 'edit':
-				this.editAliment(data.id);
+				this.openAlimentEditModal(data.id);
 				break;
 			case 'delete':
 				this.deleteAliment(data.id);
@@ -51,32 +54,6 @@ export class AppComponent {
 			default:
 				break;
 		}
-	}
-
-	editAliment(id: number) {
-		const name = this.aliments.find((aliment) => aliment.id === id)?.name;
-		this.dialogService
-			.showPrompt(
-				'Modifier',
-				`Choisissez le nouveau nom de l'aliment.`,
-				name
-			)
-			.subscribe((promptResponse) => {
-				if (!promptResponse.cancelled) {
-					this.erplibreRest
-						.updateAliment(id, promptResponse.value)
-						.subscribe({
-							next: (editResponse) => {
-								this.aliments.find(
-									(aliment) => aliment.id === id
-								)!.name = editResponse.name;
-							},
-							error: (e: any) => {
-								console.error(e);
-							},
-						});
-				}
-			});
 	}
 
 	deleteAliment(id: number) {
