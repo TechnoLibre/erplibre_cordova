@@ -16,6 +16,8 @@ export class AlimentEditComponent {
 		name: '',
 		description: '',
 		html: '',
+		date: new Date(),
+		datetime: new Date(),
 	});
 	alimentEditModal!: NgbModalRef;
 	alimentId: number = 0;
@@ -34,6 +36,8 @@ export class AlimentEditComponent {
 			name: currentAliment.name || '',
 			description: currentAliment.description || '',
 			html: currentAliment.html || '',
+			date: currentAliment.date || new Date(),
+			datetime: currentAliment.datetime || new Date(),
 		});
 	}
 
@@ -43,7 +47,9 @@ export class AlimentEditComponent {
 				this.alimentId,
 				this.alimentEditForm.value.name,
 				this.alimentEditForm.value.description,
-				this.alimentEditForm.value.html
+				this.alimentEditForm.value.html,
+				this.alimentEditForm.value.date,
+				this.alimentEditForm.value.datetime
 			)
 			.subscribe({
 				next: (response) => {
@@ -52,7 +58,9 @@ export class AlimentEditComponent {
 							response.id,
 							response.name,
 							response.description,
-							response.html
+							response.html,
+							response.date,
+							response.datetime
 						)
 					);
 					this.alimentEditModal.close();

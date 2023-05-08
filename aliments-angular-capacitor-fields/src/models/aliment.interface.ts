@@ -3,4 +3,6 @@ export interface Aliment {
 	name: string;
 	description: string;
 	html: string;
+	date: Date;
+	datetime: Date;
 }

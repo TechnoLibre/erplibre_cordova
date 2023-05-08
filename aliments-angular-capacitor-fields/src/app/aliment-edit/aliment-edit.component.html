@@ -41,10 +41,32 @@
 				<label for="aliment-modal--edit__html" class="form-label"
 					>Html</label
 				>
-				<input
-					type="text"
+				<textarea
 					id="aliment-modal--edit__html"
+					rows="3"
 					formControlName="html"
+					class="form-control"
+				></textarea>
+			</div>
+			<div class="mb-3">
+				<label for="aliment-modal--edit__date" class="form-label"
+					>Date</label
+				>
+				<input
+					type="date"
+					id="aliment-modal--edit__date"
+					formControlName="date"
+					class="form-control"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="aliment-modal--edit__datetime" class="form-label"
+					>Datetime</label
+				>
+				<input
+					type="datetime-local"
+					id="aliment-modal--edit__datetime"
+					formControlName="datetime"
 					class="form-control"
 				/>
 			</div>

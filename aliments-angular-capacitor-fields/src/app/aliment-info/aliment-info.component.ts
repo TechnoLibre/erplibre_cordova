@@ -19,6 +19,14 @@ export class AlimentInfoComponent {
 		)[0];
 	}
 
+	get formattedDatetime() {
+		if (!this.aliment.datetime) {
+			return null;
+		}
+		const datetime = new Date(this.aliment.datetime);
+		return datetime.toLocaleString();
+	}
+
 	constructor(private modalService: NgbModal) {}
 
 	openModal(id: number) {

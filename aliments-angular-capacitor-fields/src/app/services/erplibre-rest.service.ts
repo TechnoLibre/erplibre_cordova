@@ -69,7 +69,9 @@ export class ErplibreRestService {
 										aliment.id,
 										aliment.name,
 										aliment.description,
-										aliment.html
+										aliment.html,
+										aliment.date,
+										aliment.datetime
 									)
 								);
 							}
@@ -85,6 +87,7 @@ export class ErplibreRestService {
 							},
 						})
 						.subscribe((getResponse: any) => {
+							console.log(getResponse);
 							const aliments: AlimentModel[] = [];
 							for (const aliment of getResponse.data) {
 								aliments.push(
@@ -92,7 +95,9 @@ export class ErplibreRestService {
 										aliment.id,
 										aliment.name,
 										aliment.description,
-										aliment.html
+										aliment.html,
+										aliment.date,
+										aliment.datetime
 									)
 								);
 							}
@@ -111,7 +116,9 @@ export class ErplibreRestService {
 	addAliment(
 		name: string,
 		description: string,
-		html: string
+		html: string,
+		date: Date,
+		datetime: Date
 	): Observable<AlimentModel> {
 		const subject = new Subject<AlimentModel>();
 		this.auth().subscribe({
@@ -120,6 +127,8 @@ export class ErplibreRestService {
 					name,
 					description,
 					html,
+					date,
+					datetime,
 				};
 				if (Capacitor.isNativePlatform()) {
 					from(
@@ -138,7 +147,9 @@ export class ErplibreRestService {
 									postResponse.data.data[0].id,
 									postResponse.data.data[0].name,
 									postResponse.data.data[0].description,
-									postResponse.data.data[0].html
+									postResponse.data.data[0].html,
+									postResponse.data.data[0].date,
+									postResponse.data.data[0].datetime
 								)
 							);
 							subject.complete();
@@ -159,7 +170,9 @@ export class ErplibreRestService {
 										postResponse.data[0].id,
 										postResponse.data[0].name,
 										postResponse.data[0].description,
-										postResponse.data[0].html
+										postResponse.data[0].html,
+										postResponse.data[0].date,
+										postResponse.data[0].datetime
 									)
 								);
 								subject.complete();
@@ -220,7 +233,9 @@ export class ErplibreRestService {
 		id: number,
 		newName: string,
 		newDescription: string,
-		newHtml: string
+		newHtml: string,
+		newDate: Date,
+		newDatetime: Date
 	): Observable<AlimentModel> {
 		const subject = new Subject<AlimentModel>();
 		this.auth().subscribe({
@@ -229,6 +244,8 @@ export class ErplibreRestService {
 					name: newName,
 					description: newDescription,
 					html: newHtml,
+					date: newDate,
+					datetime: newDatetime,
 				};
 				if (Capacitor.isNativePlatform()) {
 					from(
@@ -247,7 +264,9 @@ export class ErplibreRestService {
 									putResponse.data.data[0].id,
 									putResponse.data.data[0].name,
 									putResponse.data.data[0].description,
-									putResponse.data.data[0].html
+									putResponse.data.data[0].html,
+									putResponse.data.data[0].date,
+									putResponse.data.data[0].datetime
 								)
 							);
 							subject.complete();
@@ -268,7 +287,9 @@ export class ErplibreRestService {
 										putResponse.data[0].id,
 										putResponse.data[0].name,
 										putResponse.data[0].description,
-										putResponse.data[0].html
+										putResponse.data[0].html,
+										putResponse.data[0].date,
+										putResponse.data[0].datetime
 									)
 								);
 								subject.complete();

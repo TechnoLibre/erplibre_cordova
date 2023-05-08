@@ -37,6 +37,24 @@
 				[innerHTML]="aliment.html || ''"
 			></div>
 		</div>
+		<div class="mb-3">
+			<label for="aliment-modal--info__date">Date (Date)</label>
+			<div
+				id="aliment-modal--info__date"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+				[innerText]="aliment.date || ''"
+			></div>
+		</div>
+		<div class="mb-3">
+			<label for="aliment-modal--info__datetime"
+				>Datetime (Datetime)</label
+			>
+			<div
+				id="aliment-modal--info__datetime"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+				[innerText]="formattedDatetime"
+			></div>
+		</div>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-secondary" ngbAutoFocus (click)="modal.close()">
