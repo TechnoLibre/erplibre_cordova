@@ -85,7 +85,6 @@ export class ErplibreRestService {
 							},
 						})
 						.subscribe((getResponse: any) => {
-							console.log(getResponse);
 							const aliments: AlimentModel[] = [];
 							for (const aliment of getResponse.data) {
 								aliments.push(
