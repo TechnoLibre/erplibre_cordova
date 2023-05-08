@@ -1,1 +1,32 @@
-<p>aliment-info works!</p>
+<ng-template #templateref let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Informations sur l'aliment</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<div class="mb-3">
+			<label for="aliment-modal--info__name">Name (Char)</label>
+			<div class="p-3 mt-2 rounded bg-secondary text-light">
+				{{ aliment.name }}
+			</div>
+		</div>
+		<div class="mb-3">
+			<label for="aliment-modal--info__description"
+				>Description (Text)</label
+			>
+			<div class="p-3 mt-2 rounded bg-secondary text-light">
+				{{ aliment.description }}
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-secondary" ngbAutoFocus (click)="modal.close()">
+			Fermer
+		</button>
+	</div>
+</ng-template>

@@ -5,6 +5,7 @@ import { AlimentAddComponent } from './aliment-add/aliment-add.component';
 import { AlimentOptionsComponent } from './aliment-options/aliment-options.component';
 import { AlimentEditComponent } from './aliment-edit/aliment-edit.component';
 import { AlimentDeleteComponent } from './aliment-delete/aliment-delete.component';
+import { AlimentInfoComponent } from './aliment-info/aliment-info.component';
 
 @Component({
 	selector: 'app-root',
@@ -21,6 +22,8 @@ export class AppComponent {
 	alimentEditComponent!: AlimentEditComponent;
 	@ViewChild(AlimentDeleteComponent)
 	alimentDeleteComponent!: AlimentDeleteComponent;
+	@ViewChild(AlimentInfoComponent)
+	alimentInfoComponent!: AlimentInfoComponent;
 
 	constructor(private erplibreRest: ErplibreRestService) {}
 
@@ -44,6 +47,15 @@ export class AppComponent {
 
 	openAlimentOptionsModal(id: number) {
 		this.alimentOptionsComponent.openModal(id);
+	}
+
+	openAlimentInfoModal(event: any, id: number) {
+		console.log(event.target.className);
+		if (event.target.className === 'aliment__options') {
+			return;
+		}
+		console.log('ALIMENT INFO MODAL FOR ID ' + id);
+		this.alimentInfoComponent.openModal(id);
 	}
 
 	openFormModal(data: { option: string; id: number }) {

@@ -54,14 +54,10 @@
 .aliment {
 	background-color: var(--aliment__background-color);
 	border-radius: 0.25rem;
+	cursor: pointer;
 	display: flex;
 	overflow: hidden;
 	&__text {
-		display: block;
-		height: 100%;
-		padding: 1rem;
-	}
-	&__description {
 		display: block;
 		height: 100%;
 		padding: 1rem;
