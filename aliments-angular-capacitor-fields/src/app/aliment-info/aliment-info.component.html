@@ -11,7 +11,10 @@
 	<div class="modal-body">
 		<div class="mb-3">
 			<label for="aliment-modal--info__name">Name (Char)</label>
-			<div class="p-3 mt-2 rounded bg-secondary text-light">
+			<div
+				id="aliment-modal--info__name"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+			>
 				{{ aliment.name }}
 			</div>
 		</div>
@@ -19,9 +22,20 @@
 			<label for="aliment-modal--info__description"
 				>Description (Text)</label
 			>
-			<div class="p-3 mt-2 rounded bg-secondary text-light">
+			<div
+				id="aliment-modal--info__description"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+			>
 				{{ aliment.description }}
 			</div>
+		</div>
+		<div class="mb-3">
+			<label for="aliment-modal--info__html">Html (Html)</label>
+			<div
+				id="aliment-modal--info__html"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+				[innerHTML]="aliment.html || ''"
+			></div>
 		</div>
 	</div>
 	<div class="modal-footer">

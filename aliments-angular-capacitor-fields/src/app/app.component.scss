@@ -62,6 +62,10 @@
 		height: 100%;
 		padding: 1rem;
 		width: 100%;
+		&:empty::after {
+			content: ".";
+			visibility: hidden;
+		}
 	}
 	&__add {
 		background-image: url("../assets/add.svg");
