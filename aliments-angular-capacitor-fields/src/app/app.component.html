@@ -8,6 +8,7 @@
 	<ul class="aliments" *ngIf="aliments">
 		<li *ngFor="let aliment of aliments" class="aliment">
 			<span class="aliment__text">{{ aliment.name }}</span>
+			<span class="aliment__description">{{ aliment.description }}</span>
 			<div
 				class="aliment__options"
 				(click)="openAlimentOptionsModal(aliment.id)"

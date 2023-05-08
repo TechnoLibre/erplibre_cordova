@@ -14,6 +14,7 @@ export class AlimentAddComponent {
 	@ViewChild('templateref') templateRef!: TemplateRef<any>;
 	alimentAddForm = this.formBuilder.group({
 		name: '',
+		description: '',
 	});
 	alimentAddModal!: NgbModalRef;
 
@@ -32,16 +33,18 @@ export class AlimentAddComponent {
 
 	addAliment() {
 		const formValue = this.alimentAddForm.value;
-		if (formValue.name) {
-			this.erplibreRest.addAliment(formValue.name).subscribe({
-				next: (addResponse: AlimentModel) => {
-					this.alimentAddModal.close();
-					this.aliments.push(addResponse);
-				},
-				error: (e) => {
-					console.error(e);
-				},
-			});
+		if (formValue.name && formValue.description) {
+			this.erplibreRest
+				.addAliment(formValue.name, formValue.description)
+				.subscribe({
+					next: (addResponse: AlimentModel) => {
+						this.alimentAddModal.close();
+						this.aliments.push(addResponse);
+					},
+					error: (e) => {
+						console.error(e);
+					},
+				});
 		}
 	}
 }

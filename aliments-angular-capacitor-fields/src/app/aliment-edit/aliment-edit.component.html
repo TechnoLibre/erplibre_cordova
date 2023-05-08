@@ -15,15 +15,26 @@
 			autocomplete="off"
 		>
 			<div class="mb-3">
-				<label for="aliment-modal--add__name" class="form-label"
+				<label for="aliment-modal--edit__name" class="form-label"
 					>Nom</label
 				>
 				<input
 					type="text"
-					id="aliment-modal--add__name"
+					id="aliment-modal--edit__name"
 					formControlName="name"
 					class="form-control"
 					ngbAutoFocus
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="aliment-modal--edit__description" class="form-label"
+					>Description</label
+				>
+				<input
+					type="text"
+					id="aliment-modal--edit__description"
+					formControlName="description"
+					class="form-control"
 				/>
 			</div>
 			<div class="modal-footer">

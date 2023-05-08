@@ -14,6 +14,7 @@ export class AlimentEditComponent {
 	@ViewChild('templateref') templateRef!: TemplateRef<any>;
 	alimentEditForm: FormGroup = this.formBuilder.group({
 		name: '',
+		description: '',
 	});
 	alimentEditModal!: NgbModalRef;
 	alimentId: number = 0;
@@ -27,15 +28,28 @@ export class AlimentEditComponent {
 	openModal(id: number) {
 		this.alimentId = id;
 		this.alimentEditModal = this.modalService.open(this.templateRef);
+		const currentAliment = this.getCurrentAliment();
+		this.alimentEditForm.patchValue({
+			name: currentAliment.name || '',
+			description: currentAliment.description || '',
+		});
 	}
 
 	editAliment() {
 		this.erplibreRest
-			.updateAliment(this.alimentId, this.alimentEditForm.value.name)
+			.updateAliment(
+				this.alimentId,
+				this.alimentEditForm.value.name,
+				this.alimentEditForm.value.description
+			)
 			.subscribe({
 				next: (response) => {
 					this.setCurrentAliment(
-						new AlimentModel(response.id, response.name)
+						new AlimentModel(
+							response.id,
+							response.name,
+							response.description
+						)
 					);
 					this.alimentEditModal.close();
 				},
