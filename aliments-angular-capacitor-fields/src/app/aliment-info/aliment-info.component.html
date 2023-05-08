@@ -14,9 +14,8 @@
 			<div
 				id="aliment-modal--info__name"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
-			>
-				{{ aliment.name }}
-			</div>
+				[innerText]="aliment.name"
+			></div>
 		</div>
 		<div class="mb-3">
 			<label for="aliment-modal--info__description"
@@ -25,9 +24,8 @@
 			<div
 				id="aliment-modal--info__description"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
-			>
-				{{ aliment.description }}
-			</div>
+				[innerText]="aliment.description"
+			></div>
 		</div>
 		<div class="mb-3">
 			<label for="aliment-modal--info__html">Html (Html)</label>
