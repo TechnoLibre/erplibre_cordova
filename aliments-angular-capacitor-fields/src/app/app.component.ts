@@ -4,6 +4,7 @@ import { AlimentModel } from 'src/models/aliment.model';
 import { AlimentAddComponent } from './aliment-add/aliment-add.component';
 import { AlimentOptionsComponent } from './aliment-options/aliment-options.component';
 import { AlimentEditComponent } from './aliment-edit/aliment-edit.component';
+import { AlimentDeleteComponent } from './aliment-delete/aliment-delete.component';
 
 @Component({
 	selector: 'app-root',
@@ -18,6 +19,8 @@ export class AppComponent {
 	alimentOptionsComponent!: AlimentOptionsComponent;
 	@ViewChild(AlimentEditComponent)
 	alimentEditComponent!: AlimentEditComponent;
+	@ViewChild(AlimentDeleteComponent)
+	alimentDeleteComponent!: AlimentDeleteComponent;
 
 	constructor(private erplibreRest: ErplibreRestService) {}
 
@@ -35,6 +38,10 @@ export class AppComponent {
 		this.alimentEditComponent.openModal(id);
 	}
 
+	openAlimentDeleteModal(id: number) {
+		this.alimentDeleteComponent.openModal(id);
+	}
+
 	openAlimentOptionsModal(id: number) {
 		this.alimentOptionsComponent.openModal(id);
 	}
@@ -45,7 +52,7 @@ export class AppComponent {
 				this.openAlimentEditModal(data.id);
 				break;
 			case 'delete':
-				this.deleteAliment(data.id);
+				this.openAlimentDeleteModal(data.id);
 				break;
 			default:
 				break;

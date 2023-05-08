@@ -19,7 +19,7 @@ import { AlimentDeleteComponent } from './aliment-delete/aliment-delete.componen
 		AlimentAddComponent,
 		AlimentEditComponent,
 		AlimentOptionsComponent,
-  AlimentDeleteComponent,
+		AlimentDeleteComponent,
 	],
 	imports: [
 		BrowserModule,
