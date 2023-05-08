@@ -50,7 +50,6 @@ export class AppComponent {
 	}
 
 	openAlimentInfoModal(event: any, id: number) {
-		console.log(event.target.className);
 		if (event.target.className === 'aliment__options') {
 			return;
 		}
