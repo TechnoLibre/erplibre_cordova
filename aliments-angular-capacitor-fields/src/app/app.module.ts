@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { ErplibreRestService } from './services/erplibre-rest.service';
-import { DialogService } from './services/dialog.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentAddComponent } from './aliment-add/aliment-add.component';
 import { AlimentEditComponent } from './aliment-edit/aliment-edit.component';
@@ -30,7 +29,7 @@ import { AlimentDeleteComponent } from './aliment-delete/aliment-delete.componen
 		FormsModule,
 		ReactiveFormsModule,
 	],
-	providers: [ErplibreRestService, DialogService],
+	providers: [ErplibreRestService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

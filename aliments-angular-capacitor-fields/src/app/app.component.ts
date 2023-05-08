@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { ErplibreRestService } from './services/erplibre-rest.service';
-import { DialogService } from './services/dialog.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { AlimentAddComponent } from './aliment-add/aliment-add.component';
 import { AlimentOptionsComponent } from './aliment-options/aliment-options.component';
@@ -20,10 +19,7 @@ export class AppComponent {
 	@ViewChild(AlimentEditComponent)
 	alimentEditComponent!: AlimentEditComponent;
 
-	constructor(
-		private erplibreRest: ErplibreRestService,
-		private dialogService: DialogService
-	) {}
+	constructor(private erplibreRest: ErplibreRestService) {}
 
 	ngOnInit() {
 		this.erplibreRest.getAliments().subscribe((response) => {
@@ -54,28 +50,5 @@ export class AppComponent {
 			default:
 				break;
 		}
-	}
-
-	deleteAliment(id: number) {
-		const name = this.aliments.find((aliment) => aliment.id === id)?.name;
-		this.dialogService
-			.showConfirm(
-				'Supprimer',
-				`Voulez-vous vraiment supprimer l'aliment «${name}»?`
-			)
-			.subscribe((confirmResponse) => {
-				if (confirmResponse.value) {
-					this.erplibreRest.deleteAliment(id).subscribe({
-						next: (deleteResponse: any) => {
-							this.aliments = this.aliments.filter(
-								(aliment) => aliment.id !== id
-							);
-						},
-						error: (e: any) => {
-							console.error(e);
-						},
-					});
-				}
-			});
 	}
 }
