@@ -1,11 +1,4 @@
-import {
-	Component,
-	EventEmitter,
-	Input,
-	Output,
-	TemplateRef,
-	ViewChild,
-} from '@angular/core';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentModel } from 'src/models/aliment.model';
@@ -47,7 +40,7 @@ export class AlimentEditComponent {
 					this.alimentEditModal.close();
 				},
 				error: (e) => {
-					console.log(e);
+					console.error(e);
 				},
 			});
 	}
