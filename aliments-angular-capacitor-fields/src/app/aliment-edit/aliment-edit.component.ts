@@ -30,7 +30,9 @@ export class AlimentEditComponent {
 
 	openModal(id: number) {
 		this.alimentId = id;
-		this.alimentEditModal = this.modalService.open(this.templateRef);
+		this.alimentEditModal = this.modalService.open(this.templateRef, {
+			scrollable: true,
+		});
 		const currentAliment = this.getCurrentAliment();
 		this.alimentEditForm.patchValue({
 			name: currentAliment.name || '',

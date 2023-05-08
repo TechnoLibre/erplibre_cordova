@@ -28,7 +28,9 @@ export class AlimentAddComponent {
 	) {}
 
 	openAlimentAddModal() {
-		this.alimentAddModal = this.modalService.open(this.templateRef);
+		this.alimentAddModal = this.modalService.open(this.templateRef, {
+			scrollable: true,
+		});
 		this.alimentAddModal.closed.subscribe((_result) => {
 			this.alimentAddForm.reset();
 		});

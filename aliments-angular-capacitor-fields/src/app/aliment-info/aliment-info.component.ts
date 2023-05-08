@@ -31,6 +31,8 @@ export class AlimentInfoComponent {
 
 	openModal(id: number) {
 		this.alimentId = id;
-		this.alimentInfoModal = this.modalService.open(this.templateRef);
+		this.alimentInfoModal = this.modalService.open(this.templateRef, {
+			scrollable: true,
+		});
 	}
 }
