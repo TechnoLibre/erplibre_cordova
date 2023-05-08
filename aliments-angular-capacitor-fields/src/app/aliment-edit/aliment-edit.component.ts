@@ -15,6 +15,7 @@ export class AlimentEditComponent {
 	alimentEditForm: FormGroup = this.formBuilder.group({
 		name: '',
 		description: '',
+		html: '',
 	});
 	alimentEditModal!: NgbModalRef;
 	alimentId: number = 0;
@@ -32,6 +33,7 @@ export class AlimentEditComponent {
 		this.alimentEditForm.patchValue({
 			name: currentAliment.name || '',
 			description: currentAliment.description || '',
+			html: currentAliment.html || '',
 		});
 	}
 
@@ -40,7 +42,8 @@ export class AlimentEditComponent {
 			.updateAliment(
 				this.alimentId,
 				this.alimentEditForm.value.name,
-				this.alimentEditForm.value.description
+				this.alimentEditForm.value.description,
+				this.alimentEditForm.value.html
 			)
 			.subscribe({
 				next: (response) => {
@@ -48,7 +51,8 @@ export class AlimentEditComponent {
 						new AlimentModel(
 							response.id,
 							response.name,
-							response.description
+							response.description,
+							response.html
 						)
 					);
 					this.alimentEditModal.close();

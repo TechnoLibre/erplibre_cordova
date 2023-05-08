@@ -68,7 +68,8 @@ export class ErplibreRestService {
 									new AlimentModel(
 										aliment.id,
 										aliment.name,
-										aliment.description
+										aliment.description,
+										aliment.html
 									)
 								);
 							}
@@ -84,13 +85,15 @@ export class ErplibreRestService {
 							},
 						})
 						.subscribe((getResponse: any) => {
+							console.log(getResponse);
 							const aliments: AlimentModel[] = [];
 							for (const aliment of getResponse.data) {
 								aliments.push(
 									new AlimentModel(
 										aliment.id,
 										aliment.name,
-										aliment.description
+										aliment.description,
+										aliment.html
 									)
 								);
 							}
@@ -106,13 +109,18 @@ export class ErplibreRestService {
 		return subject.asObservable();
 	}
 
-	addAliment(name: string, description: string): Observable<AlimentModel> {
+	addAliment(
+		name: string,
+		description: string,
+		html: string
+	): Observable<AlimentModel> {
 		const subject = new Subject<AlimentModel>();
 		this.auth().subscribe({
 			next: (authResponse: any) => {
 				const alimentData = {
 					name,
 					description,
+					html,
 				};
 				if (Capacitor.isNativePlatform()) {
 					from(
@@ -130,7 +138,8 @@ export class ErplibreRestService {
 								new AlimentModel(
 									postResponse.data.data[0].id,
 									postResponse.data.data[0].name,
-									postResponse.data.data[0].description
+									postResponse.data.data[0].description,
+									postResponse.data.data[0].html
 								)
 							);
 							subject.complete();
@@ -150,7 +159,8 @@ export class ErplibreRestService {
 									new AlimentModel(
 										postResponse.data[0].id,
 										postResponse.data[0].name,
-										postResponse.data[0].description
+										postResponse.data[0].description,
+										postResponse.data[0].html
 									)
 								);
 								subject.complete();
@@ -210,7 +220,8 @@ export class ErplibreRestService {
 	updateAliment(
 		id: number,
 		newName: string,
-		newDescription: string
+		newDescription: string,
+		newHtml: string
 	): Observable<AlimentModel> {
 		const subject = new Subject<AlimentModel>();
 		this.auth().subscribe({
@@ -218,6 +229,7 @@ export class ErplibreRestService {
 				const newData = {
 					name: newName,
 					description: newDescription,
+					html: newHtml,
 				};
 				if (Capacitor.isNativePlatform()) {
 					from(
@@ -235,7 +247,8 @@ export class ErplibreRestService {
 								new AlimentModel(
 									putResponse.data.data[0].id,
 									putResponse.data.data[0].name,
-									putResponse.data.data[0].description
+									putResponse.data.data[0].description,
+									putResponse.data.data[0].html
 								)
 							);
 							subject.complete();
@@ -255,7 +268,8 @@ export class ErplibreRestService {
 									new AlimentModel(
 										putResponse.data[0].id,
 										putResponse.data[0].name,
-										putResponse.data[0].description
+										putResponse.data[0].description,
+										putResponse.data[0].html
 									)
 								);
 								subject.complete();

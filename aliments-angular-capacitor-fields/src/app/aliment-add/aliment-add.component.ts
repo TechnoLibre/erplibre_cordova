@@ -15,6 +15,7 @@ export class AlimentAddComponent {
 	alimentAddForm = this.formBuilder.group({
 		name: '',
 		description: '',
+		html: '',
 	});
 	alimentAddModal!: NgbModalRef;
 
@@ -33,9 +34,13 @@ export class AlimentAddComponent {
 
 	addAliment() {
 		const formValue = this.alimentAddForm.value;
-		if (formValue.name && formValue.description) {
+		if (formValue.name && formValue.description && formValue.html) {
 			this.erplibreRest
-				.addAliment(formValue.name, formValue.description)
+				.addAliment(
+					formValue.name,
+					formValue.description,
+					formValue.html
+				)
 				.subscribe({
 					next: (addResponse: AlimentModel) => {
 						this.alimentAddModal.close();
