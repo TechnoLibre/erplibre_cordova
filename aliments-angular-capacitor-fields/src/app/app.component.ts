@@ -53,7 +53,6 @@ export class AppComponent {
 		if (event.target.className === 'aliment__options') {
 			return;
 		}
-		console.log('ALIMENT INFO MODAL FOR ID ' + id);
 		this.alimentInfoComponent.openModal(id);
 	}
 
