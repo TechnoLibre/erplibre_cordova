@@ -105,6 +105,6 @@ Le deuxième est le module [rest](https://github.com/RafHuardTL/erplibre_addons/
 <details>
 	<summary>Ouvrir</summary>
 
-<br>Afin de pouvoir faire la gestion des modals Bootstrap à l'intérieur des composants Angular, j'ai remplacé l'installation traditionnelle de Bootstrap par le module [ng-bootstrap](https://ng-bootstrap.github.io/#/home). Ce module permet de faire la manipulation de composants Bootstrap dans nos composants Angular, dont les modals. Grâce à ce module, on peut désormais ouvrir et gérer les modals directement à partir de nos composants Angular. Le module permet aussi de faire certaines actions sur les modals à partir du HTML de nos composants, comme la fermeture ou la rejection des modals lorsqu'on clique sur les boutons de fermeture, par exemple.
+<br>Afin de pouvoir faire la gestion des modals Bootstrap à l'intérieur des composants Angular, j'ai remplacé l'installation traditionnelle de Bootstrap par le module [ng-bootstrap](https://ng-bootstrap.github.io/#/home). Ce module permet de faire la manipulation de composants Bootstrap dans les fichiers TypeScript d'Angular. Le module permet aussi de faire certaines actions sur les modals à partir du HTML de nos composants, comme la fermeture ou la rejection des modals lorsqu'on clique sur les boutons de fermeture, par exemple.
 
 </details>
