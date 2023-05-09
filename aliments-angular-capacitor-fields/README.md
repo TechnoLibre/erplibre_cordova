@@ -89,7 +89,7 @@ Le proxy est démarré automatiquement lorsqu'on exécute l'application avec `ng
 
 </details>
 
-## Installer les module ERPLibre nécessaires
+## Installer les modules ERPLibre nécessaires
 
 Pour que l'application fonctionne, il faut installer deux modules dans ERPLibre.
 Le premier est le module [restful](https://github.com/ajepe/odoo-addons/tree/12.0/restful) par ajepe.
