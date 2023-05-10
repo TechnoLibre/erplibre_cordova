@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentModel } from 'src/models/aliment.model';
-import { ErplibreRestService } from '../services/erplibre-rest.service';
+import { ErplibreRestService } from 'src/app/services/erplibre-rest.service';
 
 @Component({
 	selector: 'app-aliment-delete',

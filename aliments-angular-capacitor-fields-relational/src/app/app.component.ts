@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { ErplibreRestService } from './services/erplibre-rest.service';
 import { AlimentModel } from 'src/models/aliment.model';
-import { AlimentAddComponent } from './aliment-add/aliment-add.component';
-import { AlimentOptionsComponent } from './aliment-options/aliment-options.component';
-import { AlimentEditComponent } from './aliment-edit/aliment-edit.component';
-import { AlimentDeleteComponent } from './aliment-delete/aliment-delete.component';
-import { AlimentInfoComponent } from './aliment-info/aliment-info.component';
+import { AlimentAddComponent } from './modals/aliment-add/aliment-add.component';
+import { AlimentOptionsComponent } from './modals/aliment-options/aliment-options.component';
+import { AlimentEditComponent } from './modals/aliment-edit/aliment-edit.component';
+import { AlimentDeleteComponent } from './modals/aliment-delete/aliment-delete.component';
+import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.component';
 
 @Component({
 	selector: 'app-root',
