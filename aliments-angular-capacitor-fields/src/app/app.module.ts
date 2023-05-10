@@ -8,11 +8,11 @@ import { AppComponent } from './app.component';
 
 import { ErplibreRestService } from './services/erplibre-rest.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { AlimentAddComponent } from './aliment-add/aliment-add.component';
-import { AlimentEditComponent } from './aliment-edit/aliment-edit.component';
-import { AlimentOptionsComponent } from './aliment-options/aliment-options.component';
-import { AlimentDeleteComponent } from './aliment-delete/aliment-delete.component';
-import { AlimentInfoComponent } from './aliment-info/aliment-info.component';
+import { AlimentAddComponent } from './modals/aliment-add/aliment-add.component';
+import { AlimentEditComponent } from './modals/aliment-edit/aliment-edit.component';
+import { AlimentOptionsComponent } from './modals/aliment-options/aliment-options.component';
+import { AlimentDeleteComponent } from './modals/aliment-delete/aliment-delete.component';
+import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.component';
 
 @NgModule({
 	declarations: [
@@ -21,7 +21,7 @@ import { AlimentInfoComponent } from './aliment-info/aliment-info.component';
 		AlimentEditComponent,
 		AlimentOptionsComponent,
 		AlimentDeleteComponent,
-  AlimentInfoComponent,
+		AlimentInfoComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -5,7 +5,7 @@ import {
 	TemplateRef,
 	ViewChild,
 } from '@angular/core';
-import { ErplibreRestService } from '../services/erplibre-rest.service';
+import { ErplibreRestService } from 'src/app/services/erplibre-rest.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
