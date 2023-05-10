@@ -1,0 +1,29 @@
+<div id="main">
+	<div class="banner">
+		<div class="banner__content">
+			<h2 class="banner__text">{{ title }}</h2>
+			<div class="aliment__add" (click)="openAlimentAddModal()"></div>
+		</div>
+	</div>
+	<ul class="aliments" *ngIf="aliments">
+		<li
+			*ngFor="let aliment of aliments"
+			class="aliment"
+			(click)="openAlimentInfoModal($event, aliment.id)"
+		>
+			<span class="aliment__text">{{ aliment.name }}</span>
+			<div
+				class="aliment__options"
+				(click)="openAlimentOptionsModal(aliment.id)"
+			></div>
+		</li>
+	</ul>
+</div>
+<app-aliment-add [aliments]="aliments"></app-aliment-add>
+<app-aliment-edit [aliments]="aliments"></app-aliment-edit>
+<app-aliment-delete [(aliments)]="aliments"></app-aliment-delete>
+<app-aliment-options
+	[aliments]="aliments"
+	(openFormModalEvent)="openFormModal($event)"
+></app-aliment-options>
+<app-aliment-info [aliments]="aliments"></app-aliment-info>
