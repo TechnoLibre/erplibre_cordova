@@ -71,7 +71,10 @@ export class ErplibreRestService {
 										aliment.description,
 										aliment.html,
 										aliment.date,
-										aliment.datetime
+										aliment.datetime,
+										aliment.int,
+										aliment.float,
+										aliment.bool
 									)
 								);
 							}
@@ -96,7 +99,10 @@ export class ErplibreRestService {
 										aliment.description,
 										aliment.html,
 										aliment.date,
-										aliment.datetime
+										aliment.datetime,
+										aliment.int,
+										aliment.float,
+										aliment.bool
 									)
 								);
 							}
@@ -117,7 +123,10 @@ export class ErplibreRestService {
 		description: string,
 		html: string,
 		date: Date,
-		datetime: Date
+		datetime: Date,
+		int: number,
+		float: number,
+		bool: boolean
 	): Observable<AlimentModel> {
 		const subject = new Subject<AlimentModel>();
 		this.auth().subscribe({
@@ -128,6 +137,9 @@ export class ErplibreRestService {
 					html,
 					date,
 					datetime,
+					int,
+					float,
+					bool,
 				};
 				if (Capacitor.isNativePlatform()) {
 					from(
@@ -148,7 +160,10 @@ export class ErplibreRestService {
 									postResponse.data.data[0].description,
 									postResponse.data.data[0].html,
 									postResponse.data.data[0].date,
-									postResponse.data.data[0].datetime
+									postResponse.data.data[0].datetime,
+									postResponse.data.data[0].int,
+									postResponse.data.data[0].float,
+									postResponse.data.data[0].bool
 								)
 							);
 							subject.complete();
@@ -171,7 +186,10 @@ export class ErplibreRestService {
 										postResponse.data[0].description,
 										postResponse.data[0].html,
 										postResponse.data[0].date,
-										postResponse.data[0].datetime
+										postResponse.data[0].datetime,
+										postResponse.data[0].int,
+										postResponse.data[0].float,
+										postResponse.data[0].bool
 									)
 								);
 								subject.complete();
@@ -234,7 +252,10 @@ export class ErplibreRestService {
 		newDescription: string,
 		newHtml: string,
 		newDate: Date,
-		newDatetime: Date
+		newDatetime: Date,
+		newInt: number,
+		newFloat: number,
+		newBool: boolean
 	): Observable<AlimentModel> {
 		const subject = new Subject<AlimentModel>();
 		this.auth().subscribe({
@@ -245,6 +266,9 @@ export class ErplibreRestService {
 					html: newHtml,
 					date: newDate,
 					datetime: newDatetime,
+					int: newInt,
+					float: newFloat,
+					bool: newBool,
 				};
 				if (Capacitor.isNativePlatform()) {
 					from(
@@ -265,7 +289,10 @@ export class ErplibreRestService {
 									putResponse.data.data[0].description,
 									putResponse.data.data[0].html,
 									putResponse.data.data[0].date,
-									putResponse.data.data[0].datetime
+									putResponse.data.data[0].datetime,
+									putResponse.data.data[0].int,
+									putResponse.data.data[0].float,
+									putResponse.data.data[0].bool
 								)
 							);
 							subject.complete();
@@ -288,7 +315,10 @@ export class ErplibreRestService {
 										putResponse.data[0].description,
 										putResponse.data[0].html,
 										putResponse.data[0].date,
-										putResponse.data[0].datetime
+										putResponse.data[0].datetime,
+										putResponse.data[0].int,
+										putResponse.data[0].float,
+										putResponse.data[0].bool
 									)
 								);
 								subject.complete();

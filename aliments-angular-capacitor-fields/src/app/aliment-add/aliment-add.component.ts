@@ -18,6 +18,9 @@ export class AlimentAddComponent {
 		html: '',
 		date: new Date(),
 		datetime: new Date(),
+		int: null,
+		float: null,
+		bool: false,
 	});
 	alimentAddModal!: NgbModalRef;
 
@@ -43,7 +46,10 @@ export class AlimentAddComponent {
 			formValue.description &&
 			formValue.html &&
 			formValue.date &&
-			formValue.datetime
+			formValue.datetime &&
+			formValue.int &&
+			formValue.float &&
+			formValue.bool
 		) {
 			this.erplibreRest
 				.addAliment(
@@ -51,7 +57,10 @@ export class AlimentAddComponent {
 					formValue.description,
 					formValue.html,
 					formValue.date,
-					formValue.datetime
+					formValue.datetime,
+					formValue.int,
+					formValue.float,
+					formValue.bool
 				)
 				.subscribe({
 					next: (addResponse: AlimentModel) => {

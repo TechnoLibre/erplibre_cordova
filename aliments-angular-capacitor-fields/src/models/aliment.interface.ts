@@ -5,4 +5,7 @@ export interface Aliment {
 	html: string;
 	date: Date;
 	datetime: Date;
+	int: number;
+	float: number;
+	bool: boolean;
 }

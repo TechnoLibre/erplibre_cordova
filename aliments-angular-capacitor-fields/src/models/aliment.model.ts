@@ -7,6 +7,9 @@ export class AlimentModel implements Aliment {
 	html: string;
 	date: Date;
 	datetime: Date;
+	int: number;
+	float: number;
+	bool: boolean;
 
 	constructor(
 		id: number,
@@ -14,7 +17,10 @@ export class AlimentModel implements Aliment {
 		description: string,
 		html: string,
 		date: Date,
-		datetime: Date
+		datetime: Date,
+		int: number,
+		float: number,
+		bool: boolean
 	) {
 		this.id = id;
 		this.name = name;
@@ -22,5 +28,8 @@ export class AlimentModel implements Aliment {
 		this.html = html;
 		this.date = date;
 		this.datetime = datetime;
+		this.int = int;
+		this.float = float;
+		this.bool = bool;
 	}
 }

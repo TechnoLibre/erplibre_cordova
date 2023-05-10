@@ -53,6 +53,30 @@
 				[innerText]="formattedDatetime"
 			></div>
 		</div>
+		<div class="mb-3">
+			<label for="aliment-modal--info__int">Int (Integer)</label>
+			<div
+				id="aliment-modal--info__int"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+				[innerText]="aliment.int || ''"
+			></div>
+		</div>
+		<div class="mb-3">
+			<label for="aliment-modal--info__float">Float (Float)</label>
+			<div
+				id="aliment-modal--info__float"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+				[innerText]="aliment.float || ''"
+			></div>
+		</div>
+		<div class="mb-3">
+			<label for="aliment-modal--info__bool">Bool (Boolean)</label>
+			<div
+				id="aliment-modal--info__bool"
+				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
+				[innerText]="aliment.bool || ''"
+			></div>
+		</div>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-secondary" ngbAutoFocus (click)="modal.close()">

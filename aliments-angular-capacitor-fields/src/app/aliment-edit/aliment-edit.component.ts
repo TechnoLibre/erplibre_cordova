@@ -18,9 +18,26 @@ export class AlimentEditComponent {
 		html: '',
 		date: new Date(),
 		datetime: new Date(),
+		int: null,
+		float: null,
+		bool: null,
 	});
 	alimentEditModal!: NgbModalRef;
 	alimentId: number = 0;
+
+	get aliment(): AlimentModel {
+		return this.aliments.filter(
+			(aliment) => aliment.id === this.alimentId
+		)[0];
+	}
+
+	set aliment(newAliment: AlimentModel) {
+		for (let i in this.aliments) {
+			if (this.aliments[i].id === this.alimentId) {
+				this.aliments[i] = newAliment;
+			}
+		}
+	}
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -33,13 +50,16 @@ export class AlimentEditComponent {
 		this.alimentEditModal = this.modalService.open(this.templateRef, {
 			scrollable: true,
 		});
-		const currentAliment = this.getCurrentAliment();
+		const currentAliment = this.aliment;
 		this.alimentEditForm.patchValue({
 			name: currentAliment.name || '',
 			description: currentAliment.description || '',
 			html: currentAliment.html || '',
-			date: currentAliment.date || new Date(),
-			datetime: currentAliment.datetime || new Date(),
+			date: currentAliment.date || '',
+			datetime: currentAliment.datetime || '',
+			int: currentAliment.int || '',
+			float: currentAliment.float || '',
+			bool: currentAliment.bool || '',
 		});
 	}
 
@@ -51,19 +71,23 @@ export class AlimentEditComponent {
 				this.alimentEditForm.value.description,
 				this.alimentEditForm.value.html,
 				this.alimentEditForm.value.date,
-				this.alimentEditForm.value.datetime
+				this.alimentEditForm.value.datetime,
+				this.alimentEditForm.value.int,
+				this.alimentEditForm.value.float,
+				this.alimentEditForm.value.bool
 			)
 			.subscribe({
 				next: (response) => {
-					this.setCurrentAliment(
-						new AlimentModel(
-							response.id,
-							response.name,
-							response.description,
-							response.html,
-							response.date,
-							response.datetime
-						)
+					this.aliment = new AlimentModel(
+						response.id,
+						response.name,
+						response.description,
+						response.html,
+						response.date,
+						response.datetime,
+						response.int,
+						response.float,
+						response.bool
 					);
 					this.alimentEditModal.close();
 				},
@@ -71,19 +95,5 @@ export class AlimentEditComponent {
 					console.error(e);
 				},
 			});
-	}
-
-	setCurrentAliment(newAliment: AlimentModel) {
-		for (let i in this.aliments) {
-			if (this.aliments[i].id === this.alimentId) {
-				this.aliments[i] = newAliment;
-			}
-		}
-	}
-
-	getCurrentAliment() {
-		return this.aliments.filter(
-			(aliment) => aliment.id === this.alimentId
-		)[0];
 	}
 }

@@ -70,6 +70,47 @@
 					class="form-control"
 				/>
 			</div>
+			<div class="mb-3">
+				<label for="aliment-modal--edit__int" class="form-label"
+					>Int</label
+				>
+				<input
+					type="number"
+					id="aliment-modal--edit__int"
+					formControlName="int"
+					class="form-control"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="aliment-modal--edit__float" class="form-label"
+					>Float</label
+				>
+				<input
+					type="number"
+					step="any"
+					id="aliment-modal--edit__float"
+					formControlName="float"
+					class="form-control"
+				/>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Bool (Boolean)</label>
+
+				<div class="form-check">
+					<input
+						type="checkbox"
+						class="form-check-input"
+						id="aliment-modal--edit__bool"
+						value=""
+						formControlName="bool"
+					/>
+					<label
+						for="aliment-modal--edit__bool"
+						class="form-check-label"
+						[innerText]="alimentEditForm.value.bool"
+					></label>
+				</div>
+			</div>
 			<div class="modal-footer">
 				<button
 					type="button"
