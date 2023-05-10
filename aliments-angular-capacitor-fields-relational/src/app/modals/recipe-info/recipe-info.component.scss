@@ -1,0 +1,4 @@
+.recipe-modal--info__field:empty::after {
+	content: ".";
+	visibility: hidden;
+}

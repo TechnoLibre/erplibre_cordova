@@ -1,0 +1,50 @@
+<ng-template #templateref let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Informations sur la recette</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<div class="mb-3">
+			<label for="recipe-modal--info__name">Name (Char)</label>
+			<div
+				id="recipe-modal--info__name"
+				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
+				[innerText]="recipe.name"
+			></div>
+		</div>
+		<div class="mb-3">
+			<label for="recipe-modal--info__description"
+				>Description (Text)</label
+			>
+			<div
+				id="recipe-modal--info__description"
+				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
+				[innerText]="recipe.description"
+			></div>
+		</div>
+		<div class="mb-3">
+			<label for="recipe-modal--info__aliments">Aliments</label>
+			<ul
+				id="recipe-modal--info__aliments"
+				class="mt-2 list-group recipe-modal--info__field"
+			>
+				<li
+					*ngFor="let aliment of getAlimentsById(recipe.aliments)"
+					class="list-group-item"
+				>
+					{{ aliment.name }}
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-secondary" ngbAutoFocus (click)="modal.close()">
+			Fermer
+		</button>
+	</div>
+</ng-template>

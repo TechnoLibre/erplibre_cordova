@@ -18,12 +18,6 @@
 	padding: 0;
 }
 
-#main {
-	font-family: sans-serif;
-	display: flex;
-	justify-content: center;
-}
-
 .banner {
 	justify-content: center;
 	display: flex;
@@ -45,51 +39,6 @@
 	}
 }
 
-.aliments {
-	list-style: none;
-	max-width: 120rem;
-	padding: 5.5rem 1rem 1rem;
-	width: 100%;
-}
-
-.aliment {
-	background-color: var(--aliment__background-color);
-	border-radius: 0.25rem;
-	cursor: pointer;
-	display: flex;
-	overflow: hidden;
-	&__text {
-		display: block;
-		height: 100%;
-		padding: 1rem;
-		width: 100%;
-		&:empty::after {
-			content: ".";
-			visibility: hidden;
-		}
-	}
-	&__add {
-		background-image: url("../assets/add.svg");
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: contain;
-		cursor: pointer;
-		height: 2.5rem;
-		width: 2.5rem;
-	}
-	&__options {
-		background-image: url("../assets/options.svg");
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: 50%;
-		cursor: pointer;
-		display: flex;
-		width: 3rem;
-		&:hover {
-			background-color: var(--aliment-options__background-color);
-		}
-	}
-	& + & {
-		margin-top: 1rem;
-	}
+.invisible {
+	visibility: hidden;
 }

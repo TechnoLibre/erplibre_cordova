@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentModel } from 'src/models/aliment.model';
-import { ErplibreRestService } from '../services/erplibre-rest.service';
+import { ErplibreRestAlimentService } from 'src/app/services/erplibre-rest-aliment.service';
 
 @Component({
 	selector: 'app-aliment-delete',
@@ -24,7 +24,7 @@ export class AlimentDeleteComponent {
 
 	constructor(
 		private modalService: NgbModal,
-		private erplibreRest: ErplibreRestService
+		private erplibreRest: ErplibreRestAlimentService
 	) {}
 
 	openModal(id: number) {

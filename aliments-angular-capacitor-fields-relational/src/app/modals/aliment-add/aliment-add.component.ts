@@ -1,11 +1,5 @@
-import {
-	Component,
-	ElementRef,
-	Input,
-	TemplateRef,
-	ViewChild,
-} from '@angular/core';
-import { ErplibreRestService } from '../services/erplibre-rest.service';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
+import { ErplibreRestAlimentService } from 'src/app/services/erplibre-rest-aliment.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
@@ -45,7 +39,7 @@ export class AlimentAddComponent {
 	}
 
 	constructor(
-		private erplibreRest: ErplibreRestService,
+		private erplibreRest: ErplibreRestAlimentService,
 		private formBuilder: FormBuilder,
 		private modalService: NgbModal
 	) {}
@@ -60,7 +54,7 @@ export class AlimentAddComponent {
 	}
 
 	addAliment() {
-		if (!this.alimentAddForm.valid) return;
+		if (this.alimentAddForm.invalid) return;
 		const formValue = this.alimentAddForm.value;
 		this.erplibreRest
 			.addAliment(

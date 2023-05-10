@@ -1,29 +1,39 @@
-<div id="main">
-	<div class="banner">
-		<div class="banner__content">
-			<h2 class="banner__text">{{ title }}</h2>
-			<div class="aliment__add" (click)="openAlimentAddModal()"></div>
+<div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+		<div class="container-fluid">
+			<ul class="navbar-nav mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a
+						routerLink="aliments"
+						routerLinkActive="active"
+						ariaCurrentWhenActive="page"
+						class="nav-link"
+						>Aliments</a
+					>
+				</li>
+				<li class="nav-item">
+					<a
+						routerLink="recipes"
+						routerLinkActive="active"
+						ariaCurrentWhenActive="page"
+						class="nav-link"
+						>Recettes</a
+					>
+				</li>
+			</ul>
+			<button
+				type="button"
+				class="btn btn-primary ms-auto"
+				(click)="openAddModal()"
+				[ngClass]="{ invisible: !routerActive }"
+			>
+				Ajouter
+			</button>
 		</div>
+	</nav>
+	<div class="position-relative">
+		<router-outlet
+			(activate)="onRouterOutletActivate($event)"
+		></router-outlet>
 	</div>
-	<ul class="aliments" *ngIf="aliments">
-		<li
-			*ngFor="let aliment of aliments"
-			class="aliment"
-			(click)="openAlimentInfoModal($event, aliment.id)"
-		>
-			<span class="aliment__text">{{ aliment.name }}</span>
-			<div
-				class="aliment__options"
-				(click)="openAlimentOptionsModal(aliment.id)"
-			></div>
-		</li>
-	</ul>
 </div>
-<app-aliment-add [aliments]="aliments"></app-aliment-add>
-<app-aliment-edit [aliments]="aliments"></app-aliment-edit>
-<app-aliment-delete [(aliments)]="aliments"></app-aliment-delete>
-<app-aliment-options
-	[aliments]="aliments"
-	(openFormModalEvent)="openFormModal($event)"
-></app-aliment-options>
-<app-aliment-info [aliments]="aliments"></app-aliment-info>

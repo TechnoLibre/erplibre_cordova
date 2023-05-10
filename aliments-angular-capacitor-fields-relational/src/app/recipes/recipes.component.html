@@ -1,0 +1,24 @@
+<ul
+	class="recipes position-absolute start-50 translate-middle-x"
+	*ngIf="recipes"
+>
+	<li
+		*ngFor="let recipe of recipes"
+		class="recipe"
+		(click)="openRecipeInfoModal($event, recipe.id)"
+	>
+		<span class="recipe__text">{{ recipe.name }}</span>
+		<div
+			class="recipe__options"
+			(click)="openRecipeOptionsModal(recipe.id)"
+		></div>
+	</li>
+</ul>
+<app-recipe-add [recipes]="recipes" [aliments]="aliments"></app-recipe-add>
+<app-recipe-info [recipes]="recipes" [aliments]="aliments"></app-recipe-info>
+<app-recipe-delete [(recipes)]="recipes"></app-recipe-delete>
+<app-recipe-edit [recipes]="recipes" [aliments]="aliments"></app-recipe-edit>
+<app-recipe-options
+	[recipes]="recipes"
+	(openFormModalEvent)="openFormModal($event)"
+></app-recipe-options>
