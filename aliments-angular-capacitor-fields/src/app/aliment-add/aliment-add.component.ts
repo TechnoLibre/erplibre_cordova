@@ -1,7 +1,13 @@
-import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
+import {
+	Component,
+	ElementRef,
+	Input,
+	TemplateRef,
+	ViewChild,
+} from '@angular/core';
 import { ErplibreRestService } from '../services/erplibre-rest.service';
 import { AlimentModel } from 'src/models/aliment.model';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -13,16 +19,30 @@ export class AlimentAddComponent {
 	@Input() aliments: AlimentModel[] = [];
 	@ViewChild('templateref') templateRef!: TemplateRef<any>;
 	alimentAddForm = this.formBuilder.group({
-		name: '',
-		description: '',
-		html: '',
-		date: new Date(),
-		datetime: new Date(),
-		int: null,
-		float: null,
-		bool: false,
+		name: new FormControl('', [Validators.required]),
+		description: new FormControl(''),
+		html: new FormControl(''),
+		date: new FormControl(null),
+		datetime: new FormControl(null),
+		int: new FormControl(null, [Validators.pattern(/^[0-9]*$/)]),
+		float: new FormControl(null, [
+			Validators.pattern(/^([0-9]+|[0-9]+\.{1}[0-9]+)$/),
+		]),
+		bool: new FormControl(false),
 	});
 	alimentAddModal!: NgbModalRef;
+
+	get name() {
+		return this.alimentAddForm.get('name');
+	}
+
+	get int() {
+		return this.alimentAddForm.get('int');
+	}
+
+	get float() {
+		return this.alimentAddForm.get('float');
+	}
 
 	constructor(
 		private erplibreRest: ErplibreRestService,
@@ -40,37 +60,27 @@ export class AlimentAddComponent {
 	}
 
 	addAliment() {
+		if (!this.alimentAddForm.valid) return;
 		const formValue = this.alimentAddForm.value;
-		if (
-			formValue.name &&
-			formValue.description &&
-			formValue.html &&
-			formValue.date &&
-			formValue.datetime &&
-			formValue.int &&
-			formValue.float &&
-			formValue.bool
-		) {
-			this.erplibreRest
-				.addAliment(
-					formValue.name,
-					formValue.description,
-					formValue.html,
-					formValue.date,
-					formValue.datetime,
-					formValue.int,
-					formValue.float,
-					formValue.bool
-				)
-				.subscribe({
-					next: (addResponse: AlimentModel) => {
-						this.alimentAddModal.close();
-						this.aliments.push(addResponse);
-					},
-					error: (e) => {
-						console.error(e);
-					},
-				});
-		}
+		this.erplibreRest
+			.addAliment(
+				formValue.name!,
+				formValue.description!,
+				formValue.html!,
+				formValue.date!,
+				formValue.datetime!,
+				formValue.int!,
+				formValue.float!,
+				formValue.bool!
+			)
+			.subscribe({
+				next: (addResponse: AlimentModel) => {
+					this.alimentAddModal.close();
+					this.aliments.push(addResponse);
+				},
+				error: (e) => {
+					console.error(e);
+				},
+			});
 	}
 }

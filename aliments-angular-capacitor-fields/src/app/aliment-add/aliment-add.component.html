@@ -13,6 +13,7 @@
 			[formGroup]="alimentAddForm"
 			(ngSubmit)="addAliment()"
 			autocomplete="off"
+			class="needs-validation"
 		>
 			<div class="mb-3">
 				<label for="aliment-modal--add__name" class="form-label"
@@ -25,6 +26,14 @@
 					class="form-control"
 					ngbAutoFocus
 				/>
+				<div
+					*ngIf="name?.invalid && (name?.dirty || name?.touched)"
+					class="alert alert-danger mt-2"
+				>
+					<div *ngIf="name?.errors?.['required']">
+						Ce champ est obligatoire.
+					</div>
+				</div>
 			</div>
 			<div class="mb-3">
 				<label for="aliment-modal--add__description" class="form-label"
@@ -75,23 +84,36 @@
 					>Int</label
 				>
 				<input
-					type="number"
+					type="text"
 					id="aliment-modal--add__int"
 					formControlName="int"
 					class="form-control"
 				/>
+				<div
+					*ngIf="int?.invalid && (int?.dirty || int?.touched)"
+					class="alert alert-danger mt-2"
+				>
+					<div *ngIf="int?.errors?.['pattern']">Nombre invalide.</div>
+				</div>
 			</div>
 			<div class="mb-3">
 				<label for="aliment-modal--add__float" class="form-label"
 					>Float</label
 				>
 				<input
-					type="number"
-					step="any"
+					type="text"
 					id="aliment-modal--add__float"
 					formControlName="float"
 					class="form-control"
 				/>
+				<div
+					*ngIf="float?.invalid && (float?.dirty || float?.touched)"
+					class="alert alert-danger mt-2"
+				>
+					<div *ngIf="float?.errors?.['pattern']">
+						Nombre invalide.
+					</div>
+				</div>
 			</div>
 			<div class="mb-3">
 				<label class="form-label">Bool (Boolean)</label>
