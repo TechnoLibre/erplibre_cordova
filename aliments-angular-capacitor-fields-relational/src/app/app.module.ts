@@ -13,6 +13,7 @@ import { AlimentEditComponent } from './modals/aliment-edit/aliment-edit.compone
 import { AlimentOptionsComponent } from './modals/aliment-options/aliment-options.component';
 import { AlimentDeleteComponent } from './modals/aliment-delete/aliment-delete.component';
 import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.component';
+import { AlimentsComponent } from './aliments/aliments.component';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.compone
 		AlimentOptionsComponent,
 		AlimentDeleteComponent,
 		AlimentInfoComponent,
+  AlimentsComponent,
 	],
 	imports: [
 		BrowserModule,

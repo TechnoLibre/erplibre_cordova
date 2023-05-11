@@ -1,11 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { ErplibreRestService } from './services/erplibre-rest.service';
-import { AlimentModel } from 'src/models/aliment.model';
-import { AlimentAddComponent } from './modals/aliment-add/aliment-add.component';
-import { AlimentOptionsComponent } from './modals/aliment-options/aliment-options.component';
-import { AlimentEditComponent } from './modals/aliment-edit/aliment-edit.component';
-import { AlimentDeleteComponent } from './modals/aliment-delete/aliment-delete.component';
-import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.component';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlimentsComponent } from './aliments/aliments.component';
 
 @Component({
 	selector: 'app-root',
@@ -14,55 +9,26 @@ import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.compone
 })
 export class AppComponent {
 	title = 'Aliments';
-	aliments: AlimentModel[] = [];
-	@ViewChild(AlimentAddComponent) alimentAddComponent!: AlimentAddComponent;
-	@ViewChild(AlimentOptionsComponent)
-	alimentOptionsComponent!: AlimentOptionsComponent;
-	@ViewChild(AlimentEditComponent)
-	alimentEditComponent!: AlimentEditComponent;
-	@ViewChild(AlimentDeleteComponent)
-	alimentDeleteComponent!: AlimentDeleteComponent;
-	@ViewChild(AlimentInfoComponent)
-	alimentInfoComponent!: AlimentInfoComponent;
+	alimentsComponent!: AlimentsComponent;
 
-	constructor(private erplibreRest: ErplibreRestService) {}
+	constructor(private router: Router) {}
 
-	ngOnInit() {
-		this.erplibreRest.getAliments().subscribe((response) => {
-			this.aliments = response;
-		});
-	}
-
-	openAlimentAddModal() {
-		this.alimentAddComponent.openAlimentAddModal();
-	}
-
-	openAlimentEditModal(id: number) {
-		this.alimentEditComponent.openModal(id);
-	}
-
-	openAlimentDeleteModal(id: number) {
-		this.alimentDeleteComponent.openModal(id);
-	}
-
-	openAlimentOptionsModal(id: number) {
-		this.alimentOptionsComponent.openModal(id);
-	}
-
-	openAlimentInfoModal(event: any, id: number) {
-		if (event.target.className === 'aliment__options') {
-			return;
-		}
-		this.alimentInfoComponent.openModal(id);
-	}
-
-	openFormModal(data: { option: string; id: number }) {
-		switch (data.option) {
-			case 'edit':
-				this.openAlimentEditModal(data.id);
+	openAddModal() {
+		const route = this.router.url.split('?')[0];
+		switch (route) {
+			case '/aliments':
+				this.alimentsComponent.openAlimentAddModal();
 				break;
-			case 'delete':
-				this.openAlimentDeleteModal(data.id);
+
+			default:
+				break;
+		}
+	}
+
+	onRouterOutletActivate(event: any) {
+		switch (event.constructor.name) {
+			case 'AlimentsComponent':
+				this.alimentsComponent = event;
 				break;
 			default:
 				break;
