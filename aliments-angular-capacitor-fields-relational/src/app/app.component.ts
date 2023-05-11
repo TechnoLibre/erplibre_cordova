@@ -10,6 +10,7 @@ import { AlimentsComponent } from './aliments/aliments.component';
 export class AppComponent {
 	title = 'Aliments';
 	alimentsComponent!: AlimentsComponent;
+	routerActive: boolean = false;
 
 	constructor(private router: Router) {}
 
@@ -26,6 +27,7 @@ export class AppComponent {
 	}
 
 	onRouterOutletActivate(event: any) {
+		this.routerActive = true;
 		switch (event.constructor.name) {
 			case 'AlimentsComponent':
 				this.alimentsComponent = event;

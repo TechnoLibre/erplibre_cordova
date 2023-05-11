@@ -22,6 +22,7 @@
 				type="button"
 				class="btn btn-primary ms-auto"
 				(click)="openAddModal()"
+				[ngClass]="{ invisible: !routerActive }"
 			>
 				Ajouter
 			</button>
