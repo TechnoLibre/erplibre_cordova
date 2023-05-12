@@ -5,7 +5,7 @@ import { AlimentOptionsComponent } from 'src/app/modals/aliment-options/aliment-
 import { AlimentEditComponent } from 'src/app/modals/aliment-edit/aliment-edit.component';
 import { AlimentDeleteComponent } from 'src/app/modals/aliment-delete/aliment-delete.component';
 import { AlimentInfoComponent } from 'src/app/modals/aliment-info/aliment-info.component';
-import { ErplibreRestService } from '../services/erplibre-rest.service';
+import { ErplibreRestAlimentService } from '../services/erplibre-rest-aliment.service';
 
 @Component({
 	selector: 'app-aliments',
@@ -24,7 +24,7 @@ export class AlimentsComponent {
 	@ViewChild(AlimentInfoComponent)
 	alimentInfoComponent!: AlimentInfoComponent;
 
-	constructor(private erplibreRest: ErplibreRestService) {}
+	constructor(private erplibreRest: ErplibreRestAlimentService) {}
 
 	ngOnInit() {
 		this.erplibreRest.getAliments().subscribe((response) => {

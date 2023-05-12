@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
 	providedIn: 'root',
 })
-export class ErplibreRestService {
+export class ErplibreRestAlimentService {
 	MODEL = 'rest.aliment';
 
 	constructor(private http: HttpClient) {}

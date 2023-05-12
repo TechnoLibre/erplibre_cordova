@@ -6,7 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { ErplibreRestService } from './services/erplibre-rest.service';
+import { ErplibreRestAlimentService } from './services/erplibre-rest-aliment.service';
+import { ErplibreRestRecipeService } from './services/erplibre-rest-recipe.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentAddComponent } from './modals/aliment-add/aliment-add.component';
 import { AlimentEditComponent } from './modals/aliment-edit/aliment-edit.component';
@@ -23,7 +24,7 @@ import { AlimentsComponent } from './aliments/aliments.component';
 		AlimentOptionsComponent,
 		AlimentDeleteComponent,
 		AlimentInfoComponent,
-  AlimentsComponent,
+		AlimentsComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -33,7 +34,7 @@ import { AlimentsComponent } from './aliments/aliments.component';
 		FormsModule,
 		ReactiveFormsModule,
 	],
-	providers: [ErplibreRestService],
+	providers: [ErplibreRestAlimentService, ErplibreRestRecipeService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
