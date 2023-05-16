@@ -118,6 +118,6 @@ Le deuxième est le module [rest](https://github.com/RafHuardTL/erplibre_addons/
 
 Premièrement, dans ERPLibre, lorsqu'on veut faire des modifications à un champ Many2many, on doit choisir ce que les données qu'on envoie vont faire. Ce comportement est défini par un chiffre qui se trouve dans le tuple qu'on envoie à ERPLibre. [Ce guide](https://gist.github.com/hmrodrigues/aa532f41b5ffc1d85fcd0277a2a60911) montre les différents nombres possibles, leur signification et le formattage attendu de la part de ERPLibre. Puisque cette application utilise TypeScript, nous ne pouvons pas utiliser de tuples, mais puisque les tuples sont essentiellement des listes immuables, on peut utiliser des listes à la place. Alors, le code `[(6, 0, [29, 35])]` devient `[[6, 0, [29, 35]]]`.
 
-Deuxièmement, lorsqu'on envoie une requête vers l'API, on doit suffixer les noms des champs relationnels avec `__api__` pour que l'envoi fonctionne. Alors, si on a un champ `aliment` dans le modèle `Recette`, on doit envoyer les données dans la requête avec le nom de champ `__api__aliments`.
+Deuxièmement, lorsqu'on envoie une requête vers l'API, on doit suffixer les noms des champs relationnels avec `__api__` pour que l'envoi fonctionne. Alors, si on a un champ `aliments` dans le modèle `Recette`, on doit envoyer les données dans la requête avec le nom de champ `__api__aliments`.
 
 </details>
