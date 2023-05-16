@@ -11,7 +11,7 @@ Cette application, basée sur mon défi, utilise Angular et Capacitor. Elle est 
 Pour vérifier si votre version est compatible, vous pouvez faire la commande `ng version`.
 Si vous recevez un message vous disant que votre version de Node.js n'est pas compatible avec Angular, il est recommandé de changer de version.
 
-Un programme comme [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) peut aider à gérer plusieurs versions de Node.js.
+[Cet article] offre quelques options pour installer Node.js.
 
 </details>
 
@@ -20,7 +20,9 @@ Un programme comme [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) p
 <details>
 	<summary>Ouvrir</summary>
 
-<br>Il faut débuter par une application Angular. Pour cet exemple, j'ai utilisé [Angular CLI](https://angular.io/tutorial/tour-of-heroes/toh-pt0#create-a-new-workspace-and-an-initial-application).
+<br>Si l'application a déjà été créée, il n'est pas nécessaire de faire l'installation. Vous pouvez [passer aux prochaines sections](#exécution-de-lapplication-android).
+
+Il faut débuter par une application Angular. Pour cet exemple, j'ai utilisé [Angular CLI](https://angular.io/tutorial/tour-of-heroes/toh-pt0#create-a-new-workspace-and-an-initial-application).
 
 La première commande crée le dossier de projet Angular dans le répertoire courant.
 
