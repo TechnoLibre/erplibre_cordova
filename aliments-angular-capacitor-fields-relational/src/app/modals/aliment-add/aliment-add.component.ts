@@ -54,7 +54,7 @@ export class AlimentAddComponent {
 	}
 
 	addAliment() {
-		if (!this.alimentAddForm.valid) return;
+		if (this.alimentAddForm.invalid) return;
 		const formValue = this.alimentAddForm.value;
 		this.erplibreRest
 			.addAliment(

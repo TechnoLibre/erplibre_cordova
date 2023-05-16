@@ -84,7 +84,7 @@ export class AlimentEditComponent {
 	}
 
 	editAliment() {
-		if (!this.alimentEditForm.valid) return;
+		if (this.alimentEditForm.invalid) return;
 		this.erplibreRest
 			.updateAliment(
 				this.alimentId,
