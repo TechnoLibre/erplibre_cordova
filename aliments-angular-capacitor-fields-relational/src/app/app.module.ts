@@ -9,35 +9,21 @@ import { AppComponent } from './app.component';
 import { ErplibreRestAlimentService } from './services/erplibre-rest-aliment.service';
 import { ErplibreRestRecipeService } from './services/erplibre-rest-recipe.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { AlimentAddComponent } from './modals/aliment-add/aliment-add.component';
-import { AlimentEditComponent } from './modals/aliment-edit/aliment-edit.component';
-import { AlimentOptionsComponent } from './modals/aliment-options/aliment-options.component';
-import { AlimentDeleteComponent } from './modals/aliment-delete/aliment-delete.component';
-import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.component';
 import { AlimentsComponent } from './aliments/aliments.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeAddComponent } from './modals/recipe-add/recipe-add.component';
-import { RecipeInfoComponent } from './modals/recipe-info/recipe-info.component';
-import { RecipeDeleteComponent } from './modals/recipe-delete/recipe-delete.component';
-import { RecipeEditComponent } from './modals/recipe-edit/recipe-edit.component';
-import { RecipeOptionsComponent } from './modals/recipe-options/recipe-options.component';
+import { AlimentModalsComponent } from './modals/aliment-modals/aliment-modals.component';
 import { AlimentService } from './services/aliment.service';
+import { RecipeService } from './services/recipe.service';
+import { ModalOpenerService } from './services/modal-opener.service';
+import { RecipeModalsComponent } from './modals/recipe-modals/recipe-modals.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		AlimentAddComponent,
-		AlimentEditComponent,
-		AlimentOptionsComponent,
-		AlimentDeleteComponent,
-		AlimentInfoComponent,
 		AlimentsComponent,
 		RecipesComponent,
-		RecipeAddComponent,
-		RecipeInfoComponent,
-		RecipeDeleteComponent,
-		RecipeEditComponent,
-		RecipeOptionsComponent,
+		AlimentModalsComponent,
+		RecipeModalsComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -51,6 +37,8 @@ import { AlimentService } from './services/aliment.service';
 		ErplibreRestAlimentService,
 		ErplibreRestRecipeService,
 		AlimentService,
+		RecipeService,
+		ModalOpenerService,
 	],
 	bootstrap: [AppComponent],
 })

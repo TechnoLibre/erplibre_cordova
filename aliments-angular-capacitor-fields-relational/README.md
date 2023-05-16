@@ -11,7 +11,7 @@ Cette application, basée sur mon défi, utilise Angular et Capacitor. Elle est 
 Pour vérifier si votre version est compatible, vous pouvez faire la commande `ng version`.
 Si vous recevez un message vous disant que votre version de Node.js n'est pas compatible avec Angular, il est recommandé de changer de version.
 
-Un programme comme [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) peut aider à gérer plusieurs versions de Node.js.
+[Cet article] offre quelques options pour installer Node.js.
 
 </details>
 
@@ -20,7 +20,9 @@ Un programme comme [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) p
 <details>
 	<summary>Ouvrir</summary>
 
-<br>Il faut débuter par une application Angular. Pour cet exemple, j'ai utilisé [Angular CLI](https://angular.io/tutorial/tour-of-heroes/toh-pt0#create-a-new-workspace-and-an-initial-application).
+<br>Si l'application a déjà été créée, il n'est pas nécessaire de faire l'installation. Vous pouvez [passer aux prochaines sections](#exécution-de-lapplication-android).
+
+Il faut débuter par une application Angular. Pour cet exemple, j'ai utilisé [Angular CLI](https://angular.io/tutorial/tour-of-heroes/toh-pt0#create-a-new-workspace-and-an-initial-application).
 
 La première commande crée le dossier de projet Angular dans le répertoire courant.
 
@@ -73,6 +75,15 @@ npx cap open android
 	<summary>Ouvrir</summary>
 
 <br>Pour exécuter l'application Android, il faut avoir installé la plateforme Android dans le projet. Si ce n'a pas été fait suite à la lecture du guide mentionné ci-dessus, [ce guide officiel](https://capacitorjs.com/docs/android#adding-the-android-platform) montre comment le faire et comment ouvrir Android Studio par la suite. [Ce guide officiel](https://developer.android.com/studio/install#linux) montre comment installer Android Studio.
+
+</details>
+
+## Construction de l'application pour la production
+
+<details>
+	<summary>Ouvrir</summary>
+
+<br>Pour construire l'application en production, il faut faire `ng build --configuration production`. `ng build --prod` est obsolète depuis Angular 12 et a été supprimé dans Angular 14.
 
 </details>
 
