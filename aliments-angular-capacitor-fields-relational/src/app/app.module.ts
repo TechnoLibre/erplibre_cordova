@@ -15,6 +15,12 @@ import { AlimentOptionsComponent } from './modals/aliment-options/aliment-option
 import { AlimentDeleteComponent } from './modals/aliment-delete/aliment-delete.component';
 import { AlimentInfoComponent } from './modals/aliment-info/aliment-info.component';
 import { AlimentsComponent } from './aliments/aliments.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeAddComponent } from './modals/recipe-add/recipe-add.component';
+import { RecipeInfoComponent } from './modals/recipe-info/recipe-info.component';
+import { RecipeDeleteComponent } from './modals/recipe-delete/recipe-delete.component';
+import { RecipeEditComponent } from './modals/recipe-edit/recipe-edit.component';
+import { RecipeOptionsComponent } from './modals/recipe-options/recipe-options.component';
 
 @NgModule({
 	declarations: [
@@ -25,6 +31,12 @@ import { AlimentsComponent } from './aliments/aliments.component';
 		AlimentDeleteComponent,
 		AlimentInfoComponent,
 		AlimentsComponent,
+		RecipesComponent,
+		RecipeAddComponent,
+		RecipeInfoComponent,
+		RecipeDeleteComponent,
+		RecipeEditComponent,
+		RecipeOptionsComponent,
 	],
 	imports: [
 		BrowserModule,

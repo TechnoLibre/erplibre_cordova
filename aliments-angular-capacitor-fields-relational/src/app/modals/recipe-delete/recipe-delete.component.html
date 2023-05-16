@@ -1,0 +1,26 @@
+<ng-template #templateref let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Supprimer une recette</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<p *ngIf="getCurrentRecipe()">
+			Voulez-vous vraiment supprimer la recette "{{
+				getCurrentRecipe().name
+			}}"?
+		</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-secondary" ngbAutoFocus (click)="modal.close()">
+			Annuler
+		</button>
+		<button class="btn btn-danger" (click)="deleteRecipe()">
+			Supprimer
+		</button>
+	</div>
+</ng-template>

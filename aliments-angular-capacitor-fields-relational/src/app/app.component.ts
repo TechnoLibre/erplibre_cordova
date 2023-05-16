@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlimentsComponent } from './aliments/aliments.component';
+import { RecipesComponent } from './recipes/recipes.component';
 
 @Component({
 	selector: 'app-root',
@@ -10,6 +11,7 @@ import { AlimentsComponent } from './aliments/aliments.component';
 export class AppComponent {
 	title = 'Aliments';
 	alimentsComponent!: AlimentsComponent;
+	recipesComponent!: RecipesComponent;
 	routerActive: boolean = false;
 
 	constructor(private router: Router) {}
@@ -20,7 +22,9 @@ export class AppComponent {
 			case '/aliments':
 				this.alimentsComponent.openAlimentAddModal();
 				break;
-
+			case '/recipes':
+				this.recipesComponent.openRecipeAddModal();
+				break;
 			default:
 				break;
 		}
@@ -31,6 +35,9 @@ export class AppComponent {
 		switch (event.constructor.name) {
 			case 'AlimentsComponent':
 				this.alimentsComponent = event;
+				break;
+			case 'RecipesComponent':
+				this.recipesComponent = event;
 				break;
 			default:
 				break;
