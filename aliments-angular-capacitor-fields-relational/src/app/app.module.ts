@@ -21,6 +21,7 @@ import { RecipeInfoComponent } from './modals/recipe-info/recipe-info.component'
 import { RecipeDeleteComponent } from './modals/recipe-delete/recipe-delete.component';
 import { RecipeEditComponent } from './modals/recipe-edit/recipe-edit.component';
 import { RecipeOptionsComponent } from './modals/recipe-options/recipe-options.component';
+import { AlimentService } from './services/aliment.service';
 
 @NgModule({
 	declarations: [
@@ -46,7 +47,11 @@ import { RecipeOptionsComponent } from './modals/recipe-options/recipe-options.c
 		FormsModule,
 		ReactiveFormsModule,
 	],
-	providers: [ErplibreRestAlimentService, ErplibreRestRecipeService],
+	providers: [
+		ErplibreRestAlimentService,
+		ErplibreRestRecipeService,
+		AlimentService,
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
