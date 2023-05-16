@@ -32,15 +32,10 @@ export class AppComponent {
 
 	onRouterOutletActivate(event: any) {
 		this.routerActive = true;
-		switch (event.constructor.name) {
-			case 'AlimentsComponent':
-				this.alimentsComponent = event;
-				break;
-			case 'RecipesComponent':
-				this.recipesComponent = event;
-				break;
-			default:
-				break;
+		if (event instanceof AlimentsComponent) {
+			this.alimentsComponent = event;
+		} else if (event instanceof RecipesComponent) {
+			this.recipesComponent = event;
 		}
 	}
 }
