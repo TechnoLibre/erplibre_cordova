@@ -25,7 +25,6 @@
 				type="button"
 				class="btn btn-primary ms-auto"
 				(click)="openAddModal()"
-				[ngClass]="{ invisible: !routerActive }"
 			>
 				Ajouter
 			</button>
@@ -37,3 +36,5 @@
 		></router-outlet>
 	</div>
 </div>
+<app-aliment-modals></app-aliment-modals>
+<app-recipe-modals></app-recipe-modals>
