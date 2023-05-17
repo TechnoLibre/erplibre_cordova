@@ -78,6 +78,15 @@ npx cap open android
 
 </details>
 
+## Construction de l'application pour la production
+
+<details>
+	<summary>Ouvrir</summary>
+
+<br>Pour construire l'application en production, il faut faire `ng build --configuration production`. `ng build --prod` est obsolète depuis Angular 12 et a été supprimé dans Angular 14.
+
+</details>
+
 ## Changer l'URL vers ERPLibre dans les fichiers de configuration
 
 <details>
