@@ -336,69 +336,57 @@
 	</div>
 	<div class="modal-body">
 		<div class="mb-3">
-			<label for="aliment-modal--info__name">Name (Char)</label>
+			<p>Name (Char)</p>
 			<div
-				id="aliment-modal--info__name"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
-				[innerText]="currentAliment.name"
+				[innerText]="currentAliment.name || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="aliment-modal--info__description"
-				>Description (Text)</label
-			>
+			<p>Description (Text)</p>
 			<div
-				id="aliment-modal--info__description"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
-				[innerText]="currentAliment.description"
+				[innerText]="currentAliment.description || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="aliment-modal--info__html">Html (Html)</label>
+			<p>Html (Html)</p>
 			<div
-				id="aliment-modal--info__html"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
 				[innerHTML]="currentAliment.html || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="aliment-modal--info__date">Date (Date)</label>
+			<p>Date (Date)</p>
 			<div
-				id="aliment-modal--info__date"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
 				[innerText]="currentAliment.date || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="aliment-modal--info__datetime"
-				>Datetime (Datetime)</label
-			>
+			<p>Datetime (Datetime)</p>
 			<div
-				id="aliment-modal--info__datetime"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
 				[innerText]="formattedDatetime"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="aliment-modal--info__int">Int (Integer)</label>
+			<p>Int (Integer)</p>
 			<div
-				id="aliment-modal--info__int"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
 				[innerText]="currentAliment.int || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="aliment-modal--info__float">Float (Float)</label>
+			<p>Float (Float)</p>
 			<div
-				id="aliment-modal--info__float"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
 				[innerText]="currentAliment.float || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="aliment-modal--info__bool">Bool (Boolean)</label>
+			<p>Bool (Boolean)</p>
 			<div
-				id="aliment-modal--info__bool"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
 				[innerText]="currentAliment.bool || ''"
 			></div>
