@@ -25,7 +25,9 @@ export class ErrorHandlerService {
 
 	handleError(error: any, fallbackMessage: string = '') {
 		let response = '';
-		if (error.status === 500) {
+		if (error.code === 'IOException' || error.code === 'ConnectException') {
+			response = error.message;
+		} else if (error.status === 500) {
 			response = error.message || error.statusText || fallbackMessage;
 		} else if (error.status === 504) {
 			if (error.url.includes('/longpolling/poll')) {
