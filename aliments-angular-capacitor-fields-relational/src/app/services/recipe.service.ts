@@ -15,14 +15,9 @@ export class RecipeService {
 	}
 
 	constructor(private erplibreRest: ErplibreRestRecipeService) {
-		this.erplibreRest.getRecipes().subscribe({
-			next: (getResponse) => {
-				this._recipes = getResponse;
-				this.recipes.next(this._recipes);
-			},
-			error: (e) => {
-				console.error(e);
-			},
+		this.erplibreRest.getRecipes().subscribe((getResponse) => {
+			this._recipes = getResponse;
+			this.recipes.next(this._recipes);
 		});
 	}
 

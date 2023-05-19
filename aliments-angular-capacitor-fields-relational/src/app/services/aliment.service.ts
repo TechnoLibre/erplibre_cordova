@@ -15,14 +15,9 @@ export class AlimentService {
 	}
 
 	constructor(private erplibreRest: ErplibreRestAlimentService) {
-		this.erplibreRest.getAliments().subscribe({
-			next: (getResponse) => {
-				this._aliments = getResponse;
-				this.aliments.next(this._aliments);
-			},
-			error: (e) => {
-				console.error(e);
-			},
+		this.erplibreRest.getAliments().subscribe((getResponse) => {
+			this._aliments = getResponse;
+			this.aliments.next(this._aliments);
 		});
 	}
 
