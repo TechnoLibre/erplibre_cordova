@@ -8,7 +8,7 @@ import {
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ErrorHandlerService } from 'src/app/services/error-handler.service';
 import { AlimentService } from 'src/app/services/aliment.service';
-import { ErplibreRestRecipeService } from 'src/app/services/erplibre-rest-recipe.service';
+import { ErplibreRestRecipeService } from 'src/app/services/erplibre-rest/erplibre-rest-recipe.service';
 import { ModalOpenerService } from 'src/app/services/modal-opener.service';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { AlimentModel } from 'src/models/aliment.model';

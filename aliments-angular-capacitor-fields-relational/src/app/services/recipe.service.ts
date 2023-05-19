@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { RecipeModel } from 'src/models/recipe.model';
-import { ErplibreRestRecipeService } from './erplibre-rest-recipe.service';
+import { ErplibreRestRecipeService } from './erplibre-rest/erplibre-rest-recipe.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -15,14 +15,9 @@ export class RecipeService {
 	}
 
 	constructor(private erplibreRest: ErplibreRestRecipeService) {
-		this.erplibreRest.getRecipes().subscribe({
-			next: (getResponse) => {
-				this._recipes = getResponse;
-				this.recipes.next(this._recipes);
-			},
-			error: (e) => {
-				console.error(e);
-			},
+		this.erplibreRest.getRecipes().subscribe((getResponse) => {
+			this._recipes = getResponse;
+			this.recipes.next(this._recipes);
 		});
 	}
 

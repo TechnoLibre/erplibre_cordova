@@ -234,6 +234,12 @@
 				class="mt-2 list-group recipe-modal--info__field"
 			>
 				<li
+					class="list-group-item disabled"
+					*ngIf="!currentRecipe.aliments"
+				>
+					Il n'y a aucun aliment pour cette recette.
+				</li>
+				<li
 					*ngFor="
 						let aliment of getAlimentsById(currentRecipe.aliments)
 					"
