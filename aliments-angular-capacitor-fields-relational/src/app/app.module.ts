@@ -18,6 +18,7 @@ import { ModalOpenerService } from './services/modal-opener.service';
 import { RecipeModalsComponent } from './modals/recipe-modals/recipe-modals.component';
 import { ErrorHandlerService } from './services/error-handler.service';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { LongpollingService } from './services/longpolling.service';
 
 @NgModule({
 	declarations: [
@@ -43,6 +44,7 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
 		AlimentService,
 		RecipeService,
 		ModalOpenerService,
+		LongpollingService,
 	],
 	bootstrap: [AppComponent],
 })
