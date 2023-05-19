@@ -214,7 +214,7 @@
 			<div
 				id="recipe-modal--info__name"
 				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
-				[innerText]="currentRecipe.name"
+				[innerText]="currentRecipe.name || ''"
 			></div>
 		</div>
 		<div class="mb-3">
@@ -224,7 +224,7 @@
 			<div
 				id="recipe-modal--info__description"
 				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
-				[innerText]="currentRecipe.description"
+				[innerText]="currentRecipe.description || ''"
 			></div>
 		</div>
 		<div class="mb-3">

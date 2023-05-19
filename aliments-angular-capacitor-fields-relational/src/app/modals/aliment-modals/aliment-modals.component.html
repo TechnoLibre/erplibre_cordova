@@ -340,7 +340,7 @@
 			<div
 				id="aliment-modal--info__name"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
-				[innerText]="currentAliment.name"
+				[innerText]="currentAliment.name || ''"
 			></div>
 		</div>
 		<div class="mb-3">
@@ -350,7 +350,7 @@
 			<div
 				id="aliment-modal--info__description"
 				class="p-3 mt-2 rounded bg-secondary text-light aliment-modal--info__field"
-				[innerText]="currentAliment.description"
+				[innerText]="currentAliment.description || ''"
 			></div>
 		</div>
 		<div class="mb-3">
