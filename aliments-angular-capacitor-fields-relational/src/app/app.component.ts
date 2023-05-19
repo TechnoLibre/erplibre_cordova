@@ -4,6 +4,7 @@ import { AlimentsComponent } from './aliments/aliments.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { AlimentModalsComponent } from './modals/aliment-modals/aliment-modals.component';
 import { ModalOpenerService } from './services/modal-opener.service';
+import { LongpollingService } from './services/longpolling.service';
 
 @Component({
 	selector: 'app-root',

@@ -120,7 +120,6 @@ export class AlimentModalsComponent {
 		this.alimentService.aliments$.subscribe((response) => {
 			this.aliments = response;
 		});
-		this.alimentService.getAliments();
 		this.modalOpener.alimentModalOpener$.subscribe({
 			next: (response) => {
 				switch (response.action) {
