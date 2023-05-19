@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Capacitor, CapacitorHttp } from '@capacitor/core';
 import { Observable, Subject, from } from 'rxjs';
 import { env } from 'src/environments/environment';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -10,7 +11,10 @@ import { env } from 'src/environments/environment';
 export class ErplibreRestService {
 	private token: string = '';
 
-	constructor(protected http: HttpClient) {}
+	constructor(
+		protected http: HttpClient,
+		protected errorHandlerService: ErrorHandlerService
+	) {}
 
 	auth(): Observable<any> {
 		const subject = new Subject();
@@ -36,9 +40,21 @@ export class ErplibreRestService {
 					},
 				})
 			).subscribe({
-				next: (v) => {
-					subject.next(v);
+				next: (getResponse: any) => {
+					if (getResponse.error) {
+						this.errorHandlerService.handleError(
+							getResponse,
+							this.errorHandlerService.messages.authentication
+						);
+					}
+					subject.next(getResponse);
 					subject.complete();
+				},
+				error: (error) => {
+					this.errorHandlerService.handleError(
+						error,
+						this.errorHandlerService.messages.authentication
+					);
 				},
 			});
 		} else {
@@ -50,9 +66,17 @@ export class ErplibreRestService {
 						password: 'admin',
 					},
 				})
-				.subscribe((response) => {
-					subject.next(response);
-					subject.complete();
+				.subscribe({
+					next: (getResponse) => {
+						subject.next(getResponse);
+						subject.complete();
+					},
+					error: (error) => {
+						this.errorHandlerService.handleError(
+							error,
+							this.errorHandlerService.messages.authentication
+						);
+					},
 				});
 		}
 		return subject.asObservable();

@@ -18,6 +18,7 @@ export class ErrorMessageComponent {
 	}
 
 	showAlert(): void {
+		if (!this.error) return;
 		this.alertActivated = true;
 		setTimeout(() => {
 			this.alertActivated = false;

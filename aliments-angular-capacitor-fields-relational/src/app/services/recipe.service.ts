@@ -14,15 +14,17 @@ export class RecipeService {
 		return this.recipes.asObservable();
 	}
 
-	constructor(private erplibreRest: ErplibreRestRecipeService) {
+	constructor(private erplibreRest: ErplibreRestRecipeService) {}
+
+	getRecipes() {
+		this.recipes.next(this._recipes);
+	}
+
+	fetchRecipes() {
 		this.erplibreRest.getRecipes().subscribe((getResponse) => {
 			this._recipes = getResponse;
 			this.recipes.next(this._recipes);
 		});
-	}
-
-	getRecipes() {
-		this.recipes.next(this._recipes);
 	}
 
 	addRecipe(recipe: RecipeModel) {

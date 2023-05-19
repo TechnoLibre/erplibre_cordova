@@ -14,15 +14,17 @@ export class AlimentService {
 		return this.aliments.asObservable();
 	}
 
-	constructor(private erplibreRest: ErplibreRestAlimentService) {
+	constructor(private erplibreRest: ErplibreRestAlimentService) {}
+
+	getAliments() {
+		this.aliments.next(this._aliments);
+	}
+
+	fetchAliments() {
 		this.erplibreRest.getAliments().subscribe((getResponse) => {
 			this._aliments = getResponse;
 			this.aliments.next(this._aliments);
 		});
-	}
-
-	getAliments() {
-		this.aliments.next(this._aliments);
 	}
 
 	addAliment(aliment: AlimentModel) {
