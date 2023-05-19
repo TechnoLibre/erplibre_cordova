@@ -11,9 +11,14 @@ import { ErrorHandlerService } from './error-handler.service';
 export class LongpollingService {
 	private last = 0;
 	private _longpolling = new Subject<any>();
+	private _connected = new Subject<boolean>();
 
 	get longpolling$(): Observable<any> {
 		return this._longpolling.asObservable();
+	}
+
+	get connected$(): Observable<boolean> {
+		return this._connected.asObservable();
 	}
 
 	constructor(
@@ -33,6 +38,7 @@ export class LongpollingService {
 				last: this.last,
 			},
 		};
+		this._connected.next(true);
 		if (Capacitor.isNativePlatform()) {
 			from(
 				CapacitorHttp.post({
@@ -49,7 +55,11 @@ export class LongpollingService {
 					this.poll();
 				},
 				error: (error) => {
+					this._connected.next(false);
 					this.errorHandlerService.handleError(error);
+					setTimeout(() => {
+						this.poll();
+					}, 5150);
 				},
 			});
 		} else {
@@ -69,7 +79,11 @@ export class LongpollingService {
 						this.poll();
 					},
 					error: (error) => {
+						this._connected.next(false);
 						this.errorHandlerService.handleError(error);
+						setTimeout(() => {
+							this.poll();
+						}, 5150);
 					},
 				});
 		}
