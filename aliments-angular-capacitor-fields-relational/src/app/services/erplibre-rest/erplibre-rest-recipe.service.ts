@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ErrorHandlerService } from './error-handler.service';
+import { ErrorHandlerService } from './../error-handler.service';
 import { ErplibreRestService } from './erplibre-rest.service';
 import { Observable, Subject, from } from 'rxjs';
 import { RecipeModel } from 'src/models/recipe.model';
 import { Capacitor, CapacitorHttp } from '@capacitor/core';
-import { env } from '../../environments/environment';
+import { env } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root',

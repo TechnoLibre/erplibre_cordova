@@ -6,8 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { ErplibreRestAlimentService } from './services/erplibre-rest-aliment.service';
-import { ErplibreRestRecipeService } from './services/erplibre-rest-recipe.service';
+import { ErplibreRestAlimentService } from './services/erplibre-rest/erplibre-rest-aliment.service';
+import { ErplibreRestRecipeService } from './services/erplibre-rest/erplibre-rest-recipe.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlimentsComponent } from './aliments/aliments.component';
 import { RecipesComponent } from './recipes/recipes.component';

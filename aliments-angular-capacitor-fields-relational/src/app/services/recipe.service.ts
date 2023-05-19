@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { RecipeModel } from 'src/models/recipe.model';
-import { ErplibreRestRecipeService } from './erplibre-rest-recipe.service';
+import { ErplibreRestRecipeService } from './erplibre-rest/erplibre-rest-recipe.service';
 
 @Injectable({
 	providedIn: 'root',

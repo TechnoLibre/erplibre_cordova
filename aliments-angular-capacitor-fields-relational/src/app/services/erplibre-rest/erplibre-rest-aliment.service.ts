@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Capacitor, CapacitorHttp } from '@capacitor/core';
-import { env } from '../../environments/environment';
+import { env } from 'src/environments/environment';
 import { Observable, Subject, from } from 'rxjs';
 import { AlimentModel } from 'src/models/aliment.model';
 import { HttpClient } from '@angular/common/http';
-import { ErrorHandlerService } from './error-handler.service';
+import { ErrorHandlerService } from './../error-handler.service';
 import { ErplibreRestService } from './erplibre-rest.service';
 
 @Injectable({
