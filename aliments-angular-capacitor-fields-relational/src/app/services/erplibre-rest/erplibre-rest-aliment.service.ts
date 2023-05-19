@@ -14,10 +14,10 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 	private MODEL = 'rest.aliment';
 
 	constructor(
-		private errorHandlerService: ErrorHandlerService,
-		protected override http: HttpClient
+		protected override http: HttpClient,
+		protected override errorHandlerService: ErrorHandlerService
 	) {
-		super(http);
+		super(http, errorHandlerService);
 	}
 
 	getAliments(): Observable<AlimentModel[]> {
