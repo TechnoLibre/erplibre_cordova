@@ -37,7 +37,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							if (getResponse.error) {
 								this.errorHandlerService.handleError(
 									getResponse,
-									"Erreur lors de l'obtention de la liste d'aliments."
+									this.errorHandlerService.messages
+										.aliments_get
 								);
 								return;
 							}
@@ -63,7 +64,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						error: (error) => {
 							this.errorHandlerService.handleError(
 								error,
-								"Erreur lors de l'obtention de la liste d'aliments."
+								this.errorHandlerService.messages.aliments_get
 							);
 						},
 					});
@@ -98,7 +99,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							error: (error) => {
 								this.errorHandlerService.handleError(
 									error,
-									"Erreur lors de l'obtention de la liste d'aliments."
+									this.errorHandlerService.messages
+										.aliments_get
 								);
 							},
 						});
@@ -107,7 +109,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 			error: (error: any) => {
 				this.errorHandlerService.handleError(
 					error,
-					"Erreur lors de l'obtention de la liste d'aliments."
+					this.errorHandlerService.messages.authentication
 				);
 			},
 		});
@@ -152,7 +154,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							if (postResponse.error) {
 								this.errorHandlerService.handleError(
 									postResponse,
-									"Erreur lors de l'ajout de l'aliment."
+									this.errorHandlerService.messages
+										.aliment_add
 								);
 								return;
 							}
@@ -174,7 +177,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						error: (error: any) => {
 							this.errorHandlerService.handleError(
 								error,
-								"Erreur lors de l'ajout de l'aliment."
+								this.errorHandlerService.messages.aliment_add
 							);
 						},
 					});
@@ -206,7 +209,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							error: (error: any) => {
 								this.errorHandlerService.handleError(
 									error,
-									"Erreur lors de l'ajout de l'aliment."
+									this.errorHandlerService.messages
+										.aliment_add
 								);
 							},
 						});
@@ -215,7 +219,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 			error: (error: any) => {
 				this.errorHandlerService.handleError(
 					error,
-					"Erreur lors de l'ajout de l'aliment."
+					this.errorHandlerService.messages.authentication
 				);
 			},
 		});
@@ -240,7 +244,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							if (deleteResponse.error) {
 								this.errorHandlerService.handleError(
 									deleteResponse,
-									"Erreur lors de la suppression de l'aliment."
+									this.errorHandlerService.messages
+										.aliment_delete
 								);
 								return;
 							}
@@ -250,7 +255,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						error: (error: any) => {
 							this.errorHandlerService.handleError(
 								error,
-								"Erreur lors de la suppression de l'aliment."
+								this.errorHandlerService.messages.aliment_delete
 							);
 						},
 					});
@@ -270,7 +275,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							error: (error: any) => {
 								this.errorHandlerService.handleError(
 									error,
-									"Erreur lors de la suppression de l'aliment."
+									this.errorHandlerService.messages
+										.aliment_delete
 								);
 							},
 						});
@@ -279,7 +285,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 			error: (error: any) => {
 				this.errorHandlerService.handleError(
 					error,
-					"Erreur lors de la suppression de l'aliment."
+					this.errorHandlerService.messages.authentication
 				);
 			},
 		});
@@ -325,7 +331,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							if (putResponse.error) {
 								this.errorHandlerService.handleError(
 									putResponse,
-									"Erreur lors de la mise à jour de l'aliment."
+									this.errorHandlerService.messages
+										.aliment_update
 								);
 								return;
 							}
@@ -347,7 +354,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						error: (error: any) => {
 							this.errorHandlerService.handleError(
 								error,
-								"Erreur lors de la mise à jour de l'aliment."
+								this.errorHandlerService.messages.aliment_update
 							);
 						},
 					});
@@ -379,7 +386,8 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							error: (error: any) => {
 								this.errorHandlerService.handleError(
 									error,
-									"Erreur lors de la mise à jour de l'aliment."
+									this.errorHandlerService.messages
+										.aliment_update
 								);
 							},
 						});
@@ -388,7 +396,7 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 			error: (error: any) => {
 				this.errorHandlerService.handleError(
 					error,
-					"Erreur lors de la mise à jour de l'aliment."
+					this.errorHandlerService.messages.authentication
 				);
 			},
 		});

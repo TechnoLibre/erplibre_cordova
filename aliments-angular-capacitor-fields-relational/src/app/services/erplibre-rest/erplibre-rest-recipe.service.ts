@@ -37,7 +37,8 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							if (getResponse.error) {
 								this.errorHandlerService.handleError(
 									getResponse,
-									"Erreur lors de l'obtention de la liste de recettes."
+									this.errorHandlerService.messages
+										.recipes_get
 								);
 								return;
 							}
@@ -58,7 +59,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 						error: (error) => {
 							this.errorHandlerService.handleError(
 								error,
-								"Erreur lors de l'obtention de la liste de recettes."
+								this.errorHandlerService.messages.recipes_get
 							);
 						},
 					});
@@ -88,7 +89,8 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							error: (error) => {
 								this.errorHandlerService.handleError(
 									error,
-									"Erreur lors de l'obtention de la liste de recettes."
+									this.errorHandlerService.messages
+										.recipes_get
 								);
 							},
 						});
@@ -97,7 +99,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 			error: (error: any) => {
 				this.errorHandlerService.handleError(
 					error,
-					"Erreur lors de l'obtention de la liste de recettes."
+					this.errorHandlerService.messages.authentication
 				);
 			},
 		});
@@ -132,7 +134,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							if (postResponse.error) {
 								this.errorHandlerService.handleError(
 									postResponse,
-									"Erreur lors de l'ajout de la recette."
+									this.errorHandlerService.messages.recipe_add
 								);
 								return;
 							}
@@ -149,7 +151,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 						error: (error: any) => {
 							this.errorHandlerService.handleError(
 								error,
-								"Erreur lors de l'ajout de la recette."
+								this.errorHandlerService.messages.recipe_add
 							);
 						},
 					});
@@ -176,7 +178,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							error: (error: any) => {
 								this.errorHandlerService.handleError(
 									error,
-									"Erreur lors de l'ajout de la recette."
+									this.errorHandlerService.messages.recipe_add
 								);
 							},
 						});
@@ -185,7 +187,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 			error: (error: any) => {
 				this.errorHandlerService.handleError(
 					error,
-					"Erreur lors de l'ajout de la recette."
+					this.errorHandlerService.messages.authentication
 				);
 			},
 		});
@@ -210,7 +212,8 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							if (deleteResponse.error) {
 								this.errorHandlerService.handleError(
 									deleteResponse,
-									'Erreur lors de la suppression de la recette.'
+									this.errorHandlerService.messages
+										.recipe_delete
 								);
 								return;
 							}
@@ -220,7 +223,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 						error: (error) => {
 							this.errorHandlerService.handleError(
 								error,
-								'Erreur lors de la suppression de la recette.'
+								this.errorHandlerService.messages.recipe_delete
 							);
 							return;
 						},
@@ -241,7 +244,8 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							error: (error) => {
 								this.errorHandlerService.handleError(
 									error,
-									'Erreur lors de la suppression de la recette.'
+									this.errorHandlerService.messages
+										.recipe_delete
 								);
 								return;
 							},
@@ -251,7 +255,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 			error: (error) => {
 				this.errorHandlerService.handleError(
 					error,
-					'Erreur lors de la suppression de la recette.'
+					this.errorHandlerService.messages.authentication
 				);
 				return;
 			},
@@ -288,7 +292,8 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							if (putResponse.error) {
 								this.errorHandlerService.handleError(
 									putResponse,
-									'Erreur lors de la mise à jour de la recette.'
+									this.errorHandlerService.messages
+										.recipe_update
 								);
 								return;
 							}
@@ -305,7 +310,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 						error: (error) => {
 							this.errorHandlerService.handleError(
 								error,
-								'Erreur lors de la mise à jour de la recette.'
+								this.errorHandlerService.messages.recipe_update
 							);
 							return;
 						},
@@ -333,7 +338,8 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							error: (error) => {
 								this.errorHandlerService.handleError(
 									error,
-									'Erreur lors de la mise à jour de la recette.'
+									this.errorHandlerService.messages
+										.recipe_update
 								);
 								return;
 							},
@@ -343,7 +349,7 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 			error: (error) => {
 				this.errorHandlerService.handleError(
 					error,
-					'Erreur lors de la mise à jour de la recette.'
+					this.errorHandlerService.messages.authentication
 				);
 				return;
 			},
