@@ -4,6 +4,7 @@ import { env } from '../../environments/environment';
 import { Observable, Subject, from } from 'rxjs';
 import { AlimentModel } from 'src/models/aliment.model';
 import { HttpClient } from '@angular/common/http';
+import { ErrorHandlerService } from './error-handler.service';
 import { ErplibreRestService } from './erplibre-rest.service';
 
 @Injectable({
@@ -12,7 +13,10 @@ import { ErplibreRestService } from './erplibre-rest.service';
 export class ErplibreRestAlimentService extends ErplibreRestService {
 	private MODEL = 'rest.aliment';
 
-	constructor(protected override http: HttpClient) {
+	constructor(
+		private errorHandlerService: ErrorHandlerService,
+		protected override http: HttpClient
+	) {
 		super(http);
 	}
 
@@ -30,6 +34,13 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						})
 					).subscribe({
 						next: (getResponse: any) => {
+							if (getResponse.error) {
+								this.errorHandlerService.handleError(
+									getResponse,
+									"Erreur lors de l'obtention de la liste d'aliments."
+								);
+								return;
+							}
 							const aliments: AlimentModel[] = [];
 							for (const aliment of getResponse.data.data) {
 								aliments.push(
@@ -49,6 +60,12 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 							subject.next(aliments);
 							subject.complete();
 						},
+						error: (error) => {
+							this.errorHandlerService.handleError(
+								error,
+								"Erreur lors de l'obtention de la liste d'aliments."
+							);
+						},
 					});
 				} else {
 					this.http
@@ -57,30 +74,41 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 								access_token: authResponse.access_token,
 							},
 						})
-						.subscribe((getResponse: any) => {
-							const aliments: AlimentModel[] = [];
-							for (const aliment of getResponse.data) {
-								aliments.push(
-									new AlimentModel(
-										aliment.id,
-										aliment.name,
-										aliment.description,
-										aliment.html,
-										aliment.date,
-										aliment.datetime,
-										aliment.int,
-										aliment.float,
-										aliment.bool
-									)
+						.subscribe({
+							next: (getResponse: any) => {
+								const aliments: AlimentModel[] = [];
+								for (const aliment of getResponse.data) {
+									aliments.push(
+										new AlimentModel(
+											aliment.id,
+											aliment.name,
+											aliment.description,
+											aliment.html,
+											aliment.date,
+											aliment.datetime,
+											aliment.int,
+											aliment.float,
+											aliment.bool
+										)
+									);
+								}
+								subject.next(aliments);
+								subject.complete();
+							},
+							error: (error) => {
+								this.errorHandlerService.handleError(
+									error,
+									"Erreur lors de l'obtention de la liste d'aliments."
 								);
-							}
-							subject.next(aliments);
-							subject.complete();
+							},
 						});
 				}
 			},
-			error: (e: any) => {
-				console.error(e);
+			error: (error: any) => {
+				this.errorHandlerService.handleError(
+					error,
+					"Erreur lors de l'obtention de la liste d'aliments."
+				);
 			},
 		});
 		return subject.asObservable();
@@ -121,6 +149,13 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						})
 					).subscribe({
 						next: (postResponse: any) => {
+							if (postResponse.error) {
+								this.errorHandlerService.handleError(
+									postResponse,
+									"Erreur lors de l'ajout de l'aliment."
+								);
+								return;
+							}
 							subject.next(
 								new AlimentModel(
 									postResponse.data.data[0].id,
@@ -135,6 +170,12 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 								)
 							);
 							subject.complete();
+						},
+						error: (error: any) => {
+							this.errorHandlerService.handleError(
+								error,
+								"Erreur lors de l'ajout de l'aliment."
+							);
 						},
 					});
 				} else {
@@ -162,11 +203,20 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 								);
 								subject.complete();
 							},
+							error: (error: any) => {
+								this.errorHandlerService.handleError(
+									error,
+									"Erreur lors de l'ajout de l'aliment."
+								);
+							},
 						});
 				}
 			},
-			error: (e: any) => {
-				console.error(e);
+			error: (error: any) => {
+				this.errorHandlerService.handleError(
+					error,
+					"Erreur lors de l'ajout de l'aliment."
+				);
 			},
 		});
 		return subject.asObservable();
@@ -187,8 +237,21 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						})
 					).subscribe({
 						next: (deleteResponse: any) => {
+							if (deleteResponse.error) {
+								this.errorHandlerService.handleError(
+									deleteResponse,
+									"Erreur lors de la suppression de l'aliment."
+								);
+								return;
+							}
 							subject.next(deleteResponse.data.data);
 							subject.complete();
+						},
+						error: (error: any) => {
+							this.errorHandlerService.handleError(
+								error,
+								"Erreur lors de la suppression de l'aliment."
+							);
 						},
 					});
 				} else {
@@ -204,11 +267,20 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 								subject.next(deleteResponse.data);
 								subject.complete();
 							},
+							error: (error: any) => {
+								this.errorHandlerService.handleError(
+									error,
+									"Erreur lors de la suppression de l'aliment."
+								);
+							},
 						});
 				}
 			},
-			error: (e: any) => {
-				console.error(e);
+			error: (error: any) => {
+				this.errorHandlerService.handleError(
+					error,
+					"Erreur lors de la suppression de l'aliment."
+				);
 			},
 		});
 		return subject.asObservable();
@@ -250,6 +322,13 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 						})
 					).subscribe({
 						next: (putResponse: any) => {
+							if (putResponse.error) {
+								this.errorHandlerService.handleError(
+									putResponse,
+									"Erreur lors de la mise à jour de l'aliment."
+								);
+								return;
+							}
 							subject.next(
 								new AlimentModel(
 									putResponse.data.data[0].id,
@@ -264,6 +343,12 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 								)
 							);
 							subject.complete();
+						},
+						error: (error: any) => {
+							this.errorHandlerService.handleError(
+								error,
+								"Erreur lors de la mise à jour de l'aliment."
+							);
 						},
 					});
 				} else {
@@ -291,11 +376,20 @@ export class ErplibreRestAlimentService extends ErplibreRestService {
 								);
 								subject.complete();
 							},
+							error: (error: any) => {
+								this.errorHandlerService.handleError(
+									error,
+									"Erreur lors de la mise à jour de l'aliment."
+								);
+							},
 						});
 				}
 			},
-			error: (e: any) => {
-				console.error(e);
+			error: (error: any) => {
+				this.errorHandlerService.handleError(
+					error,
+					"Erreur lors de la mise à jour de l'aliment."
+				);
 			},
 		});
 		return subject.asObservable();

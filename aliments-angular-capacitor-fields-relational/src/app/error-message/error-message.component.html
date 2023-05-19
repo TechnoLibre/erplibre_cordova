@@ -1,0 +1,11 @@
+<div class="alert-wrapper" [ngClass]="{ activated: alertActivated }">
+	<div class="alert alert-danger shadow mt-2 mx-3 mb-0" role="alert">
+		<div class="alert__text">{{ error }}</div>
+		<button
+			type="button"
+			class="btn-close ms-2"
+			aria-label="Close"
+			(click)="closeAlert()"
+		></button>
+	</div>
+</div>

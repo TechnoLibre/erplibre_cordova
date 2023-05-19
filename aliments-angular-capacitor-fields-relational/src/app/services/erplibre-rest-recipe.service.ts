@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ErrorHandlerService } from './error-handler.service';
 import { ErplibreRestService } from './erplibre-rest.service';
 import { Observable, Subject, from } from 'rxjs';
 import { RecipeModel } from 'src/models/recipe.model';
@@ -12,7 +13,10 @@ import { env } from '../../environments/environment';
 export class ErplibreRestRecipeService extends ErplibreRestService {
 	private MODEL = 'rest.recipe';
 
-	constructor(protected override http: HttpClient) {
+	constructor(
+		private errorHandlerService: ErrorHandlerService,
+		protected override http: HttpClient
+	) {
 		super(http);
 	}
 
@@ -28,31 +32,17 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 								access_token: authResponse.data.access_token,
 							},
 						})
-					).subscribe((getResponse: any) => {
-						const recipes: RecipeModel[] = [];
-						for (const recipe of getResponse.data.data) {
-							recipes.push(
-								new RecipeModel(
-									recipe.id,
-									recipe.name,
-									recipe.description,
-									recipe.aliments
-								)
-							);
-						}
-						subject.next(recipes);
-						subject.complete();
-					});
-				} else {
-					this.http
-						.get(`/api/${this.MODEL}`, {
-							headers: {
-								access_token: authResponse.access_token,
-							},
-						})
-						.subscribe((getResponse: any) => {
+					).subscribe({
+						next: (getResponse: any) => {
+							if (getResponse.error) {
+								this.errorHandlerService.handleError(
+									getResponse,
+									"Erreur lors de l'obtention de la liste de recettes."
+								);
+								return;
+							}
 							const recipes: RecipeModel[] = [];
-							for (const recipe of getResponse.data) {
+							for (const recipe of getResponse.data.data) {
 								recipes.push(
 									new RecipeModel(
 										recipe.id,
@@ -64,11 +54,51 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 							}
 							subject.next(recipes);
 							subject.complete();
+						},
+						error: (error) => {
+							this.errorHandlerService.handleError(
+								error,
+								"Erreur lors de l'obtention de la liste de recettes."
+							);
+						},
+					});
+				} else {
+					this.http
+						.get(`/api/${this.MODEL}`, {
+							headers: {
+								access_token: authResponse.access_token,
+							},
+						})
+						.subscribe({
+							next: (getResponse: any) => {
+								const recipes: RecipeModel[] = [];
+								for (const recipe of getResponse.data) {
+									recipes.push(
+										new RecipeModel(
+											recipe.id,
+											recipe.name,
+											recipe.description,
+											recipe.aliments
+										)
+									);
+								}
+								subject.next(recipes);
+								subject.complete();
+							},
+							error: (error) => {
+								this.errorHandlerService.handleError(
+									error,
+									"Erreur lors de l'obtention de la liste de recettes."
+								);
+							},
 						});
 				}
 			},
-			error: (e) => {
-				console.error(e);
+			error: (error: any) => {
+				this.errorHandlerService.handleError(
+					error,
+					"Erreur lors de l'obtention de la liste de recettes."
+				);
 			},
 		});
 		return subject.asObservable();
@@ -99,6 +129,13 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 						})
 					).subscribe({
 						next: (postResponse: any) => {
+							if (postResponse.error) {
+								this.errorHandlerService.handleError(
+									postResponse,
+									"Erreur lors de l'ajout de la recette."
+								);
+								return;
+							}
 							subject.next(
 								new RecipeModel(
 									postResponse.data.data[0].id,
@@ -108,6 +145,12 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 								)
 							);
 							subject.complete();
+						},
+						error: (error: any) => {
+							this.errorHandlerService.handleError(
+								error,
+								"Erreur lors de l'ajout de la recette."
+							);
 						},
 					});
 				} else {
@@ -130,11 +173,20 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 								);
 								subject.complete();
 							},
+							error: (error: any) => {
+								this.errorHandlerService.handleError(
+									error,
+									"Erreur lors de l'ajout de la recette."
+								);
+							},
 						});
 				}
 			},
-			error: (e: any) => {
-				console.error(e);
+			error: (error: any) => {
+				this.errorHandlerService.handleError(
+					error,
+					"Erreur lors de l'ajout de la recette."
+				);
 			},
 		});
 		return subject.asObservable();
@@ -155,8 +207,22 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 						})
 					).subscribe({
 						next: (deleteResponse: any) => {
+							if (deleteResponse.error) {
+								this.errorHandlerService.handleError(
+									deleteResponse,
+									'Erreur lors de la suppression de la recette.'
+								);
+								return;
+							}
 							subject.next(deleteResponse.data.data);
 							subject.complete();
+						},
+						error: (error) => {
+							this.errorHandlerService.handleError(
+								error,
+								'Erreur lors de la suppression de la recette.'
+							);
+							return;
 						},
 					});
 				} else {
@@ -172,11 +238,22 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 								subject.next(deleteResponse.data);
 								subject.complete();
 							},
+							error: (error) => {
+								this.errorHandlerService.handleError(
+									error,
+									'Erreur lors de la suppression de la recette.'
+								);
+								return;
+							},
 						});
 				}
 			},
-			error: (e: any) => {
-				console.error(e);
+			error: (error) => {
+				this.errorHandlerService.handleError(
+					error,
+					'Erreur lors de la suppression de la recette.'
+				);
+				return;
 			},
 		});
 		return subject.asObservable();
@@ -208,6 +285,13 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 						})
 					).subscribe({
 						next: (putResponse: any) => {
+							if (putResponse.error) {
+								this.errorHandlerService.handleError(
+									putResponse,
+									'Erreur lors de la mise à jour de la recette.'
+								);
+								return;
+							}
 							subject.next(
 								new RecipeModel(
 									putResponse.data.data[0].id,
@@ -217,6 +301,13 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 								)
 							);
 							subject.complete();
+						},
+						error: (error) => {
+							this.errorHandlerService.handleError(
+								error,
+								'Erreur lors de la mise à jour de la recette.'
+							);
+							return;
 						},
 					});
 				} else {
@@ -239,11 +330,22 @@ export class ErplibreRestRecipeService extends ErplibreRestService {
 								);
 								subject.complete();
 							},
+							error: (error) => {
+								this.errorHandlerService.handleError(
+									error,
+									'Erreur lors de la mise à jour de la recette.'
+								);
+								return;
+							},
 						});
 				}
 			},
-			error: (e: any) => {
-				console.error(e);
+			error: (error) => {
+				this.errorHandlerService.handleError(
+					error,
+					'Erreur lors de la mise à jour de la recette.'
+				);
+				return;
 			},
 		});
 		return subject.asObservable();

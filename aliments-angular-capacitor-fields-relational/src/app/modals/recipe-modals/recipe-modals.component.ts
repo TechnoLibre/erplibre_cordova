@@ -6,6 +6,7 @@ import {
 	Validators,
 } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ErrorHandlerService } from 'src/app/services/error-handler.service';
 import { AlimentService } from 'src/app/services/aliment.service';
 import { ErplibreRestRecipeService } from 'src/app/services/erplibre-rest-recipe.service';
 import { ModalOpenerService } from 'src/app/services/modal-opener.service';
@@ -73,6 +74,7 @@ export class RecipeModalsComponent {
 	}
 
 	constructor(
+		private errorHandlerService: ErrorHandlerService,
 		private recipeService: RecipeService,
 		private alimentService: AlimentService,
 		private erplibreRestRecipeService: ErplibreRestRecipeService,
@@ -106,8 +108,8 @@ export class RecipeModalsComponent {
 						break;
 				}
 			},
-			error: (e) => {
-				console.error(e);
+			error: (error) => {
+				this.errorHandlerService.handleError(error);
 			},
 		});
 
@@ -184,8 +186,8 @@ export class RecipeModalsComponent {
 					this.addModal.close();
 					this.recipes.push(addResponse);
 				},
-				error: (e) => {
-					console.error(e);
+				error: (error) => {
+					this.errorHandlerService.handleError(error);
 				},
 			});
 	}
@@ -206,8 +208,8 @@ export class RecipeModalsComponent {
 					);
 					this.deleteModal.close();
 				},
-				error: (e) => {
-					console.error(e);
+				error: (error) => {
+					this.errorHandlerService.handleError(error);
 				},
 			});
 	}
@@ -228,8 +230,8 @@ export class RecipeModalsComponent {
 					this.recipeService.updateRecipe(response);
 					this.editModal.close();
 				},
-				error: (e) => {
-					console.error(e);
+				error: (error) => {
+					this.errorHandlerService.handleError(error);
 				},
 			});
 	}

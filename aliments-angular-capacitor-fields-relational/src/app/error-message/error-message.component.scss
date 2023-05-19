@@ -1,0 +1,27 @@
+.alert-wrapper {
+	left: 50%;
+	max-width: 1920px;
+	position: absolute;
+	top: 0;
+	transform: translate(-50%, -100%);
+	transition: transform 150ms ease-in-out;
+	width: 100%;
+	z-index: 2048;
+}
+
+.alert {
+	align-items: center;
+	display: flex;
+}
+
+.alert__text {
+	flex-grow: 1;
+	&:empty::after {
+		content: ".";
+		visibility: hidden;
+	}
+}
+
+.activated {
+	transform: translateX(-50%);
+}

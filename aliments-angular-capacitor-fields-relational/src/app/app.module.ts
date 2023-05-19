@@ -16,6 +16,8 @@ import { AlimentService } from './services/aliment.service';
 import { RecipeService } from './services/recipe.service';
 import { ModalOpenerService } from './services/modal-opener.service';
 import { RecipeModalsComponent } from './modals/recipe-modals/recipe-modals.component';
+import { ErrorHandlerService } from './services/error-handler.service';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
 	declarations: [
@@ -24,6 +26,7 @@ import { RecipeModalsComponent } from './modals/recipe-modals/recipe-modals.comp
 		RecipesComponent,
 		AlimentModalsComponent,
 		RecipeModalsComponent,
+		ErrorMessageComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -34,6 +37,7 @@ import { RecipeModalsComponent } from './modals/recipe-modals/recipe-modals.comp
 		ReactiveFormsModule,
 	],
 	providers: [
+		ErrorHandlerService,
 		ErplibreRestAlimentService,
 		ErplibreRestRecipeService,
 		AlimentService,
