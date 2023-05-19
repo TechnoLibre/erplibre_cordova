@@ -27,6 +27,12 @@ export class ErrorHandlerService {
 		let response = '';
 		if (error.status === 500) {
 			response = error.message || error.statusText || fallbackMessage;
+		} else if (error.status === 504) {
+			if (error.url.includes('/longpolling/poll')) {
+				response = error.message || error.error || fallbackMessage;
+			} else {
+				response = fallbackMessage;
+			}
 		} else if (error.error === true) {
 			response = error.data.message || fallbackMessage;
 		} else if (error.error.message) {
