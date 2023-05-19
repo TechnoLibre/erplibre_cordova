@@ -24,8 +24,6 @@ export class ModalOpenerService {
 		return this._recipeModalOpener.asObservable();
 	}
 
-	constructor() {}
-
 	openAlimentModal(action: number, id: number = 0) {
 		if (!Object.values(this.actions).includes(action)) {
 			return;
