@@ -19,6 +19,7 @@ import { RecipeModalsComponent } from './modals/recipe-modals/recipe-modals.comp
 import { ErrorHandlerService } from './services/error-handler.service';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { LongpollingService } from './services/longpolling.service';
+import { LongpollingConnectionIndicatorComponent } from './longpolling-connection-indicator/longpolling-connection-indicator.component';
 
 @NgModule({
 	declarations: [
@@ -28,6 +29,7 @@ import { LongpollingService } from './services/longpolling.service';
 		AlimentModalsComponent,
 		RecipeModalsComponent,
 		ErrorMessageComponent,
+  LongpollingConnectionIndicatorComponent,
 	],
 	imports: [
 		BrowserModule,
