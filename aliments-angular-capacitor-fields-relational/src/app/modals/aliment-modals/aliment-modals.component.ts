@@ -6,6 +6,7 @@ import {
 	Validators,
 } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ErrorHandlerService } from 'src/app/services/error-handler.service';
 import { AlimentService } from 'src/app/services/aliment.service';
 import { ErplibreRestAlimentService } from 'src/app/services/erplibre-rest-aliment.service';
 import { ModalOpenerService } from 'src/app/services/modal-opener.service';
@@ -109,6 +110,7 @@ export class AlimentModalsComponent {
 	}
 
 	constructor(
+		private errorHandlerService: ErrorHandlerService,
 		private alimentService: AlimentService,
 		private formBuilder: FormBuilder,
 		private modalService: NgbModal,
@@ -142,8 +144,8 @@ export class AlimentModalsComponent {
 						break;
 				}
 			},
-			error: (e) => {
-				console.error(e);
+			error: (error) => {
+				this.errorHandlerService.handleError(error);
 			},
 		});
 	}
@@ -223,8 +225,8 @@ export class AlimentModalsComponent {
 					this.addModal.close();
 					this.alimentService.addAliment(addResponse);
 				},
-				error: (e) => {
-					console.error(e);
+				error: (error) => {
+					this.errorHandlerService.handleError(error);
 				},
 			});
 	}
@@ -249,8 +251,8 @@ export class AlimentModalsComponent {
 					this.alimentService.updateAliment(updateResponse);
 					this.editModal.close();
 				},
-				error: (e) => {
-					console.error(e);
+				error: (error) => {
+					this.errorHandlerService.handleError(error);
 				},
 			});
 	}
@@ -263,8 +265,8 @@ export class AlimentModalsComponent {
 				);
 				this.deleteModal.close();
 			},
-			error: (e) => {
-				console.error(e);
+			error: (error) => {
+				this.errorHandlerService.handleError(error);
 			},
 		});
 	}

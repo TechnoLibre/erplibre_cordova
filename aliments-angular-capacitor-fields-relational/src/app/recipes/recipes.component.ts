@@ -3,6 +3,7 @@ import { ErplibreRestAlimentService } from '../services/erplibre-rest-aliment.se
 import { ErplibreRestRecipeService } from '../services/erplibre-rest-recipe.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { RecipeModel } from 'src/models/recipe.model';
+import { ErrorHandlerService } from '../services/error-handler.service';
 import { ModalOpenerService } from '../services/modal-opener.service';
 import { AlimentService } from '../services/aliment.service';
 import { RecipeService } from '../services/recipe.service';
@@ -19,6 +20,7 @@ export class RecipesComponent implements OnInit {
 	constructor(
 		private erplibreAlimentsRest: ErplibreRestAlimentService,
 		private erplibreRecipesRest: ErplibreRestRecipeService,
+		private errorHandlerService: ErrorHandlerService,
 		private alimentService: AlimentService,
 		private recipeService: RecipeService,
 		private modalOpener: ModalOpenerService
@@ -29,16 +31,16 @@ export class RecipesComponent implements OnInit {
 			next: (response: AlimentModel[]) => {
 				this.aliments = response;
 			},
-			error: (e) => {
-				console.error(e);
+			error: (error) => {
+				this.errorHandlerService.handleError(error);
 			},
 		});
 		this.recipeService.recipes$.subscribe({
 			next: (response) => {
 				this.recipes = response;
 			},
-			error: (e) => {
-				console.error(e);
+			error: (error) => {
+				this.errorHandlerService.handleError(error);
 			},
 		});
 		this.alimentService.getAliments();
