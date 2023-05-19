@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ErplibreRestAlimentService } from '../services/erplibre-rest-aliment.service';
-import { ErplibreRestRecipeService } from '../services/erplibre-rest-recipe.service';
 import { AlimentModel } from 'src/models/aliment.model';
 import { RecipeModel } from 'src/models/recipe.model';
 import { ErrorHandlerService } from '../services/error-handler.service';
@@ -18,8 +16,6 @@ export class RecipesComponent implements OnInit {
 	aliments: AlimentModel[] = [];
 
 	constructor(
-		private erplibreAlimentsRest: ErplibreRestAlimentService,
-		private erplibreRecipesRest: ErplibreRestRecipeService,
 		private errorHandlerService: ErrorHandlerService,
 		private alimentService: AlimentService,
 		private recipeService: RecipeService,
