@@ -1,9 +1,77 @@
 import { Injectable } from '@angular/core';
+import { env } from 'src/environments/environment';
+import { Capacitor, CapacitorHttp } from '@capacitor/core';
+import { Observable, Subject, from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ErrorHandlerService } from './error-handler.service';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class LongpollingService {
+	private last = 0;
+	private _longpolling = new Subject<any>();
 
-  constructor() { }
+	get longpolling$(): Observable<any> {
+		return this._longpolling.asObservable();
+	}
+
+	constructor(
+		private http: HttpClient,
+		private errorHandlerService: ErrorHandlerService
+	) {}
+
+	poll() {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+		const data = {
+			jsonrpc: '2.0',
+			method: 'call',
+			params: {
+				channels: ['rest.aliment'],
+				last: this.last,
+			},
+		};
+		if (Capacitor.isNativePlatform()) {
+			from(
+				CapacitorHttp.post({
+					url: `${env.apiUrl}/longpolling/poll`,
+					headers,
+					data: data,
+				})
+			).subscribe({
+				next: (getResponse: any) => {
+					if (getResponse.result && getResponse.result.length > 0) {
+						this.last = getResponse.result[0].id;
+						this._longpolling.next(getResponse);
+					}
+					this.poll();
+				},
+				error: (error) => {
+					this.errorHandlerService.handleError(error);
+				},
+			});
+		} else {
+			this.http
+				.post(`/longpolling/poll`, data, {
+					headers,
+				})
+				.subscribe({
+					next: (getResponse: any) => {
+						if (
+							getResponse.result &&
+							getResponse.result.length > 0
+						) {
+							this.last = getResponse.result[0].id;
+							this._longpolling.next(getResponse);
+						}
+						this.poll();
+					},
+					error: (error) => {
+						this.errorHandlerService.handleError(error);
+					},
+				});
+		}
+	}
 }

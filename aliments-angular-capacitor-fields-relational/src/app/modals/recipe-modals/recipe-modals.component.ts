@@ -112,9 +112,6 @@ export class RecipeModalsComponent {
 				this.errorHandlerService.handleError(error);
 			},
 		});
-
-		this.alimentService.getAliments();
-		this.recipeService.getRecipes();
 	}
 
 	openAddModal(): void {
