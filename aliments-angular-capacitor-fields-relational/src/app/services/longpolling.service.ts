@@ -48,11 +48,13 @@ export class LongpollingService {
 				})
 			).subscribe({
 				next: (getResponse: any) => {
-					if (getResponse.result && getResponse.result.length > 0) {
-						this.last = getResponse.result[0].id;
-						this._longpolling.next(getResponse);
+					if (getResponse.data && getResponse.data.result && getResponse.data.result.length > 0) {
+						this.last = getResponse.data.result[0].id;
+						this._longpolling.next(getResponse.data);
 					}
-					this.poll();
+					setTimeout(() => {
+						this.poll();
+					}, 1000);
 				},
 				error: (error) => {
 					this._connected.next(false);
@@ -76,7 +78,9 @@ export class LongpollingService {
 							this.last = getResponse.result[0].id;
 							this._longpolling.next(getResponse);
 						}
-						this.poll();
+						setTimeout(() => {
+							this.poll();
+						}, 1000);
 					},
 					error: (error) => {
 						this._connected.next(false);
