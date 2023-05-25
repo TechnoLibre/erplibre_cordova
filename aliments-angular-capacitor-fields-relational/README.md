@@ -132,3 +132,7 @@ Premièrement, dans ERPLibre, lorsqu'on veut faire des modifications à un champ
 Deuxièmement, lorsqu'on envoie une requête vers l'API, on doit suffixer les noms des champs relationnels avec `__api__` pour que l'envoi fonctionne. Alors, si on a un champ `aliments` dans le modèle `Recette`, on doit envoyer les données dans la requête avec le nom de champ `__api__aliments`.
 
 </details>
+
+# FAQ
+
+Pour déverminer lorsque l'application roule sur un mobile ou le simulateur, utiliser : chromium et mettre le url chrome://inspect
