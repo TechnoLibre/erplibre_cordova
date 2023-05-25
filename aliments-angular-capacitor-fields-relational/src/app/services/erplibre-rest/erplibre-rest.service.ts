@@ -34,7 +34,6 @@ export class ErplibreRestService {
 				CapacitorHttp.get({
 					url: `${env.apiUrl}/api/auth/token`,
 					params: {
-						db: 'test_rhuard_demo_full',
 						login: 'admin',
 						password: 'admin',
 					},
@@ -61,7 +60,6 @@ export class ErplibreRestService {
 			this.http
 				.get('/api/auth/token', {
 					params: {
-						db: 'test_rhuard_demo_full',
 						login: 'admin',
 						password: 'admin',
 					},
