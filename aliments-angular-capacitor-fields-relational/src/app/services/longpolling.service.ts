@@ -52,7 +52,9 @@ export class LongpollingService {
 						this.last = getResponse.result[0].id;
 						this._longpolling.next(getResponse);
 					}
-					this.poll();
+					setTimeout(() => {
+						this.poll();
+					}, 1000);
 				},
 				error: (error) => {
 					this._connected.next(false);
