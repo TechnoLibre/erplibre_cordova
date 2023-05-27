@@ -48,11 +48,13 @@ export class LongpollingService {
 				})
 			).subscribe({
 				next: (getResponse: any) => {
-					if (getResponse.result && getResponse.result.length > 0) {
+					if (getResponse.data?.result.length > 0) {
 						this.last = getResponse.result[0].id;
 						this._longpolling.next(getResponse);
 					}
-					this.poll();
+					setTimeout(() => {
+						this.poll();
+					}, 1000);
 				},
 				error: (error) => {
 					this._connected.next(false);
@@ -68,15 +70,17 @@ export class LongpollingService {
 					headers,
 				})
 				.subscribe({
-					next: (getResponse: any) => {
+					next: (postResponse: any) => {
 						if (
-							getResponse.result &&
-							getResponse.result.length > 0
+							postResponse.result &&
+							postResponse.result.length > 0
 						) {
-							this.last = getResponse.result[0].id;
-							this._longpolling.next(getResponse);
+							this.last = postResponse.result[0].id;
+							this._longpolling.next(postResponse);
 						}
-						this.poll();
+						setTimeout(() => {
+							this.poll();
+						}, 1000);
 					},
 					error: (error) => {
 						this._connected.next(false);
