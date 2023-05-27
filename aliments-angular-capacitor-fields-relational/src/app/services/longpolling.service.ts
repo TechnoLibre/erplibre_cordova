@@ -49,7 +49,7 @@ export class LongpollingService {
 			).subscribe({
 				next: (getResponse: any) => {
 					if (getResponse.data?.result.length > 0) {
-						this.last = getResponse.result[0].id;
+						this.last = getResponse.data.result[0].id;
 						this._longpolling.next(getResponse);
 					}
 					setTimeout(() => {
