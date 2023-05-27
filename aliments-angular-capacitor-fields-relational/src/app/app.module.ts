@@ -29,7 +29,7 @@ import { LongpollingConnectionIndicatorComponent } from './longpolling-connectio
 		AlimentModalsComponent,
 		RecipeModalsComponent,
 		ErrorMessageComponent,
-  LongpollingConnectionIndicatorComponent,
+		LongpollingConnectionIndicatorComponent,
 	],
 	imports: [
 		BrowserModule,
