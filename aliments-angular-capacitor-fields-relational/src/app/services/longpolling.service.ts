@@ -78,7 +78,9 @@ export class LongpollingService {
 							this.last = postResponse.result[0].id;
 							this._longpolling.next(postResponse);
 						}
-						this.poll();
+						setTimeout(() => {
+							this.poll();
+						}, 1000);
 					},
 					error: (error) => {
 						this._connected.next(false);
