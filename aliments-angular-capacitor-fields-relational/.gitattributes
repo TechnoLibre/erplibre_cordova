@@ -1,0 +1,2 @@
+proxy.conf.json merge=ours
+src/environments/* merge=ours
