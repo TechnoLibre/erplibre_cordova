@@ -1,34 +1,49 @@
 <div>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
 		<div class="container-fluid">
-			<ul class="navbar-nav mb-2 mb-lg-0 me-auto">
-				<li class="nav-item">
-					<a
-						routerLink="aliments"
-						routerLinkActive="active"
-						ariaCurrentWhenActive="page"
-						class="nav-link"
-						>Aliments</a
-					>
-				</li>
-				<li class="nav-item">
-					<a
-						routerLink="recipes"
-						routerLinkActive="active"
-						ariaCurrentWhenActive="page"
-						class="nav-link"
-						>Recettes</a
-					>
-				</li>
-			</ul>
-			<app-longpolling-connection-indicator></app-longpolling-connection-indicator>
 			<button
+				class="navbar-toggler"
 				type="button"
-				class="btn btn-primary ms-3"
-				(click)="openAddModal()"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
 			>
-				Ajouter
+				<span class="navbar-toggler-icon"></span>
 			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mb-2 mb-lg-0 me-auto">
+					<li class="nav-item">
+						<a
+							routerLink="aliments"
+							routerLinkActive="active"
+							ariaCurrentWhenActive="page"
+							class="nav-link"
+							>Aliments</a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							routerLink="recipes"
+							routerLinkActive="active"
+							ariaCurrentWhenActive="page"
+							class="nav-link"
+							>Recettes</a
+						>
+					</li>
+				</ul>
+				<div class="d-flex">
+					<app-longpolling-connection-indicator></app-longpolling-connection-indicator>
+					<button
+						type="button"
+						class="btn btn-primary ms-3"
+						(click)="openAddModal()"
+					>
+						Ajouter
+					</button>
+				</div>
+			</div>
 		</div>
 	</nav>
 	<div class="position-relative">
