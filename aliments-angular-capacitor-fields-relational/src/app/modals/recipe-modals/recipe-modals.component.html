@@ -210,29 +210,22 @@
 	</div>
 	<div class="modal-body">
 		<div class="mb-3">
-			<label for="recipe-modal--info__name">Name (Char)</label>
+			<p>Name (Char)</p>
 			<div
-				id="recipe-modal--info__name"
 				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
 				[innerText]="currentRecipe.name || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="recipe-modal--info__description"
-				>Description (Text)</label
-			>
+			<p>Description (Text)</p>
 			<div
-				id="recipe-modal--info__description"
 				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
 				[innerText]="currentRecipe.description || ''"
 			></div>
 		</div>
 		<div class="mb-3">
-			<label for="recipe-modal--info__aliments">Aliments</label>
-			<ul
-				id="recipe-modal--info__aliments"
-				class="mt-2 list-group recipe-modal--info__field"
-			>
+			<p>Aliments</p>
+			<ul class="mt-2 list-group recipe-modal--info__field">
 				<li
 					class="list-group-item disabled"
 					*ngIf="!currentRecipe.aliments"
