@@ -50,7 +50,7 @@ export class LongpollingService {
 				next: (postResponse: any) => {
 					if (postResponse.data?.result.length > 0) {
 						this.last = postResponse.data.result[0].id;
-						this._longpolling.next(postResponse);
+						this._longpolling.next(postResponse.data);
 					}
 					setTimeout(() => {
 						this.poll();
