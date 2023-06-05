@@ -1,0 +1,95 @@
+::ng-deep :root {
+	--banner__color: #2474be;
+	--text__color: #f3f3f3;
+	--aliment__background-color: #f3f3f3;
+	--aliment-options__background-color: #e3e3e3;
+	--add__color: #f3f3f3;
+	--edit__color: #0053a1;
+	--delete__color: #a10000;
+	font-size: 16px;
+}
+
+::ng-deep *,
+::ng-deep *::before,
+::ng-deep *::after {
+	box-sizing: border-box;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+}
+
+#main {
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+}
+
+.banner {
+	justify-content: center;
+	display: flex;
+	background-color: var(--banner__color);
+	position: fixed;
+	width: 100%;
+	&__content {
+		align-items: center;
+		height: 4.5rem;
+		padding: 1rem;
+		display: flex;
+		width: 100%;
+		max-width: 120rem;
+	}
+	&__text {
+		color: var(--text__color);
+		flex: 1 1 auto;
+		margin-bottom: 0;
+	}
+}
+
+.aliments {
+	list-style: none;
+	max-width: 120rem;
+	padding: 5.5rem 1rem 1rem;
+	width: 100%;
+}
+
+.aliment {
+	background-color: var(--aliment__background-color);
+	border-radius: 0.25rem;
+	cursor: pointer;
+	display: flex;
+	overflow: hidden;
+	&__text {
+		display: block;
+		height: 100%;
+		padding: 1rem;
+		width: 100%;
+		&:empty::after {
+			content: ".";
+			visibility: hidden;
+		}
+	}
+	&__add {
+		background-image: url("../assets/add.svg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		cursor: pointer;
+		height: 2.5rem;
+		width: 2.5rem;
+	}
+	&__options {
+		background-image: url("../assets/options.svg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 50%;
+		cursor: pointer;
+		display: flex;
+		width: 3rem;
+		&:hover {
+			background-color: var(--aliment-options__background-color);
+		}
+	}
+	& + & {
+		margin-top: 1rem;
+	}
+}

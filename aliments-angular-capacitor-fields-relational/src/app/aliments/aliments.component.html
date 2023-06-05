@@ -1,0 +1,16 @@
+<ul
+	class="aliments position-absolute start-50 translate-middle-x"
+	*ngIf="aliments"
+>
+	<li
+		*ngFor="let aliment of aliments"
+		class="aliment"
+		(click)="openAlimentInfoModal($event, aliment.id)"
+	>
+		<span class="aliment__text">{{ aliment.name }}</span>
+		<div
+			class="aliment__options"
+			(click)="openAlimentOptionsModal(aliment.id)"
+		></div>
+	</li>
+</ul>

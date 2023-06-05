@@ -1,0 +1,290 @@
+<ng-template #templateAdd let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Ajouter une recette</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<form
+			[formGroup]="addFormGroup"
+			(ngSubmit)="addRecipe()"
+			autocomplete="off"
+		>
+			<div class="mb-3">
+				<label for="recipe-modal--add__name" class="form-label"
+					>Nom</label
+				>
+				<input
+					type="text"
+					id="recipe-modal--add__name"
+					formControlName="name"
+					class="form-control"
+					ngbAutoFocus
+				/>
+				<div
+					*ngIf="addName?.invalid && addFormSubmitted"
+					class="alert alert-danger mt-2"
+				>
+					<div *ngIf="addName?.errors?.['required']">
+						Ce champ est obligatoire.
+					</div>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="recipe-modal--add__description" class="form-label"
+					>Description</label
+				>
+				<input
+					type="text"
+					id="recipe-modal--add__description"
+					formControlName="description"
+					class="form-control"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="recipe-modal--add__aliments" class="form-label"
+					>Aliments</label
+				>
+				<select
+					multiple
+					class="form-select"
+					formControlName="aliments"
+					id="recipe-modal--add__aliments"
+				>
+					<option
+						*ngFor="let aliment of aliments"
+						[value]="aliment.id"
+					>
+						{{ aliment.name }}
+					</option>
+				</select>
+				<div
+					*ngIf="addAliments?.invalid && addFormSubmitted"
+					class="alert alert-danger mt-2"
+				>
+					<div *ngIf="addAliments?.errors?.['required']">
+						Ce champ est obligatoire.
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-secondary ml-auto"
+					data-bs-dismiss="modal"
+					(click)="modal.close()"
+				>
+					Fermer
+				</button>
+				<button class="btn btn-primary" type="submit">Ajouter</button>
+			</div>
+		</form>
+	</div>
+</ng-template>
+<ng-template #templateDelete let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Supprimer une recette</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<p *ngIf="currentRecipe">
+			Voulez-vous vraiment supprimer la recette "{{
+				currentRecipe.name
+			}}"?
+		</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-secondary" ngbAutoFocus (click)="modal.close()">
+			Annuler
+		</button>
+		<button class="btn btn-danger" (click)="deleteRecipe()">
+			Supprimer
+		</button>
+	</div>
+</ng-template>
+<ng-template #templateEdit let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Modifier une recette</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<form
+			[formGroup]="editFormGroup"
+			(ngSubmit)="editRecipe()"
+			autocomplete="off"
+		>
+			<div class="mb-3">
+				<label for="recipe-modal--edit__name" class="form-label"
+					>Nom</label
+				>
+				<input
+					type="text"
+					id="recipe-modal--edit__name"
+					formControlName="name"
+					class="form-control"
+					ngbAutoFocus
+				/>
+				<div
+					*ngIf="editName?.invalid && editFormSubmitted"
+					class="alert alert-danger mt-2"
+				>
+					<div *ngIf="editName?.errors?.['required']">
+						Ce champ est obligatoire.
+					</div>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="recipe-modal--edit__description" class="form-label"
+					>Description</label
+				>
+				<input
+					type="text"
+					id="recipe-modal--edit__description"
+					formControlName="description"
+					class="form-control"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="recipe-modal--edit__recipes" class="form-label"
+					>Aliments</label
+				>
+				<select
+					multiple
+					class="form-select"
+					id="recipe-modal--edit__recipes"
+					formControlName="aliments"
+				>
+					<option
+						*ngFor="let aliment of aliments"
+						[value]="aliment.id"
+					>
+						{{ aliment.name }}
+					</option>
+				</select>
+				<div
+					*ngIf="editAliments?.invalid && editFormSubmitted"
+					class="alert alert-danger mt-2"
+				>
+					<div *ngIf="editAliments?.errors?.['required']">
+						Ce champ est obligatoire.
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-secondary ml-auto"
+					data-bs-dismiss="modal"
+					(click)="modal.close()"
+				>
+					Fermer
+				</button>
+				<button class="btn btn-primary" type="submit">Modifier</button>
+			</div>
+		</form>
+	</div>
+</ng-template>
+<ng-template #templateInfo let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">Informations sur la recette</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<div class="mb-3">
+			<p>Name (Char)</p>
+			<div
+				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
+				[innerText]="currentRecipe.name || ''"
+			></div>
+		</div>
+		<div class="mb-3">
+			<p>Description (Text)</p>
+			<div
+				class="p-3 mt-2 rounded bg-secondary text-light recipe-modal--info__field"
+				[innerText]="currentRecipe.description || ''"
+			></div>
+		</div>
+		<div class="mb-3">
+			<p>Aliments</p>
+			<ul class="mt-2 list-group recipe-modal--info__field">
+				<li
+					class="list-group-item disabled"
+					*ngIf="!currentRecipe.aliments"
+				>
+					Il n'y a aucun aliment pour cette recette.
+				</li>
+				<li
+					*ngFor="
+						let aliment of getAlimentsById(currentRecipe.aliments)
+					"
+					class="list-group-item"
+				>
+					{{ aliment.name }}
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-secondary" ngbAutoFocus (click)="modal.close()">
+			Fermer
+		</button>
+	</div>
+</ng-template>
+<ng-template #templateOptions let-modal>
+	<div class="modal-header">
+		<h5 class="modal-title">
+			Options pour la recette "{{ currentRecipe.name }}"
+		</h5>
+		<button
+			type="button"
+			class="btn-close"
+			aria-label="Close"
+			(click)="modal.dismiss()"
+		></button>
+	</div>
+	<div class="modal-body">
+		<div class="d-flex gap-2 justify-content-end">
+			<button
+				type="button"
+				class="btn btn-primary"
+				(click)="openEditModal(currentRecipe.id)"
+			>
+				Modifier
+			</button>
+			<button
+				type="button"
+				class="btn btn-danger"
+				(click)="openDeleteModal(currentRecipe.id)"
+			>
+				Supprimer
+			</button>
+			<button
+				type="button"
+				class="btn btn-secondary"
+				(click)="modal.dismiss()"
+				ngbAutoFocus
+			>
+				Annuler
+			</button>
+		</div>
+	</div>
+</ng-template>
